@@ -1,0 +1,8 @@
+Changelog for dataflake.cache
+=============================
+
+0.9 (unreleased)
+----------------
+
+- Initial release based on caching code formerly residing inside 
+  Products.LDAPUserFolder
