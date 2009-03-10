@@ -18,16 +18,13 @@ $Id$
 import unittest
 
 
-class CacheTests(unittest.TestCase):
+class CacheTestCase(unittest.TestCase):
 
     def _makeOne(self, *args, **kw):
         return self._getTargetClass()(*args, **kw)
 
     def _getTargetClass(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     def setUp(self):
         self.cache = self._makeOne()
-
-    def test_initial_state(self):
-        self.failIf(self.cache.get())

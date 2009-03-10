@@ -17,10 +17,10 @@ $Id$
 
 import unittest
 
-from dataflake.cache.tests.base import CacheTests
+from dataflake.cache.tests.base import CacheTestCase
 
        
-class TestSimpleCache(CacheTests):
+class TestSimpleCache(CacheTestCase):
 
     def _getTargetClass(self):
         from dataflake.cache.simple import SimpleCache
@@ -30,6 +30,9 @@ class TestSimpleCache(CacheTests):
         from dataflake.cache.interfaces import ICache
         from zope.interface.verify import verifyClass
         verifyClass(ICache, self._getTargetClass())
+
+    def test_initial_state(self):
+        self.failIf(self.cache.get())
 
     def test_get_set_clear(self):
         self.failIf(self.cache.get())

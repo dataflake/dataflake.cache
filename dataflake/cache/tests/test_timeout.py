@@ -18,10 +18,10 @@ $Id$
 import time
 import unittest
 
-from dataflake.cache.tests.base import CacheTests
+from dataflake.cache.tests.base import CacheTestCase
 
        
-class TestTimeoutCache(CacheTests):
+class TestTimeoutCache(CacheTestCase):
 
     def _getTargetClass(self):
         from dataflake.cache.timeout import TimeoutCache
@@ -31,6 +31,9 @@ class TestTimeoutCache(CacheTests):
         from dataflake.cache.interfaces import ITimeoutCache
         from zope.interface.verify import verifyClass
         verifyClass(ITimeoutCache, self._getTargetClass())
+
+    def test_initial_state(self):
+        self.failIf(self.cache.get())
 
     def test_get_set_clear(self):
         self.failIf(self.cache.get())
