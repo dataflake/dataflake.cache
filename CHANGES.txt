@@ -1,5 +1,5 @@
-Changelog for dataflake.cache
-=============================
+Change log
+==========
 
 0.9 (unreleased)
 ----------------

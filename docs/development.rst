@@ -21,4 +21,6 @@ URL to retrieve the latest development code as Python egg::
 
   http://svn.dataflake.org/svn/dataflake.cache/trunk#egg=dataflake.cache
 
-
+Change log
+----------
+.. literalinclude:: ../CHANGES.txt

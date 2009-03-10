@@ -18,7 +18,6 @@ Narrative documentation explaining how to use :mod:`dataflake.cache`.
    install
    development
    glossary
-   changes
 
 API documentation
 -----------------
