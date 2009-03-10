@@ -4,7 +4,7 @@
 dataflake.cache
 ===============
 
-:mod:`dataflake.cache` provides caching implementations bades on a 
+:mod:`dataflake.cache` provides caching implementations based on a 
 very simple API.
 
 Narrative documentation

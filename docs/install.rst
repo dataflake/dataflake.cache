@@ -1,5 +1,5 @@
 Installing :mod:`dataflake.cache`
-================================
+=================================
 
 How To Install
 --------------
@@ -28,9 +28,3 @@ following command::
 
   $ easy_install dataflake.cache
 
-
-What Gets Installed
--------------------
-
-When you ``easy_install`` :mod:`dataflake.cache`, the
-:term:`python-ldap` libraries are installed if they are not present.
