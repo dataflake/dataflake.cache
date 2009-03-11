@@ -1,8 +1,8 @@
 .. _index:
 
-===============
-dataflake.cache
-===============
+=============
+Documentation
+=============
 
 :mod:`dataflake.cache` provides caching implementations based on a 
 very simple API.

@@ -1,7 +1,7 @@
 .. _api_interfaces_section:
 
-:mod:`dataflake.cache.interfaces`
----------------------------------
+Interfaces
+----------
 
 .. autointerface:: dataflake.cache.interfaces.ICache
 

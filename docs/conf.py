@@ -165,7 +165,7 @@ htmlhelp_basename = 'dataflakecachedoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, document class [howto/manual]).
 latex_documents = [
-  ('index', 'dataflakecache.tex', 'dataflake.cache Documentation', 'Jens Vagelpohl', 'manual'),
+  ('index', 'dataflake.cache.tex', 'dataflake.cache Documentation', 'Jens Vagelpohl', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

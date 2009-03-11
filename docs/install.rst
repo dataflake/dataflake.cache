@@ -1,5 +1,5 @@
-Installing :mod:`dataflake.cache`
-=================================
+Installation
+============
 
 How To Install
 --------------
