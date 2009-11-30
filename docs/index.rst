@@ -35,8 +35,8 @@ Support
 -------
 
 If you need commercial support for this software package, please
-contact Zetwork GmbH at `http://www.zetwork.com 
-<http://www.zetwork.com/en/>`_.
+contact zetwork GmbH at `http://www.zetwork.com 
+<http://www.zetwork.com/>`_.
 
 Indices and tables
 ------------------
