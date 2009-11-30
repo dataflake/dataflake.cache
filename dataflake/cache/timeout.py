@@ -76,6 +76,8 @@ class TimeoutCache(object):
             self.timeouts = {}
 
     def setTimeout(self, timeout):
+        """ Set a timeout value in seconds
+        """
         self.timeout = timeout
 
 
