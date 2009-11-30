@@ -9,7 +9,7 @@ run :mod:`dataflake.cache`.  Development of
 :mod:`dataflake.cache` is done primarily under Python 2.4, so 
 that version is recommended.
 
-.. warning:: To succesfully install :mod:`dataflake.cache`, 
+.. warning:: To successfully install :mod:`dataflake.cache`, 
    you will need an environment capable of compiling Python C code.  
    See the documentation about installing, e.g. ``gcc`` and 
    ``python-devel`` for your system.  You will also need 
