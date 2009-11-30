@@ -10,7 +10,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-""" A simple non-persistent cache
+""" Simple non-persistent caches
 
 $Id$
 """
@@ -44,3 +44,17 @@ class SimpleCache(object):
         else:
             self.cache = {}
 
+
+CACHE = {}
+
+class ModuleSimpleCache(SimpleCache):
+    """ Simple module-level cache
+
+    All cache instances share the module level cache. It is important 
+    for the applications that use these cache instances to ensure the
+    cache keys are unique across all applications.
+    """
+    implements(ICache)
+
+    def __init__(self):
+        self.cache = CACHE

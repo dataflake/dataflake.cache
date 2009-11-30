@@ -56,9 +56,38 @@ class TestSimpleCache(CacheTestCase):
         self.cache.invalidate()
         self.failIf(self.cache.get())
 
+    def test_instancelevel_sharing(self):
+        # Make sure cache values are *not* shared across instances
+        cache1 = self._makeOne()
+        cache2 = self._makeOne()
+
+        cache1.set('key1', 'value1')
+        cache2.set('key2', 'value2')
+
+        self.failIf(cache1.get('key2'))
+        self.failIf(cache2.get('key1'))
+
+
+class TestModuleSimpleCache(TestSimpleCache):
+
+    def _getTargetClass(self):
+        from dataflake.cache.simple import ModuleSimpleCache
+        return ModuleSimpleCache
+
+    def test_instancelevel_sharing(self):
+        # Make sure cache values are shared across instances
+        cache1 = self._makeOne()
+        cache2 = self._makeOne()
+
+        cache1.set('key1', 'value1')
+        cache2.set('key2', 'value2')
+
+        self.assertEquals(set(cache1.get()), set(cache2.get()))
+
 
 def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestSimpleCache),
+        unittest.makeSuite(TestModuleSimpleCache),
         ))
 

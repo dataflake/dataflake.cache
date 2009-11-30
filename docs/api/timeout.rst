@@ -9,4 +9,7 @@
   :inherited-members:
   :undoc-members:
 
-
+.. autoclass:: ModuleTimeoutCache
+  :members:
+  :inherited-members:
+  :undoc-members:

@@ -8,3 +8,8 @@
   :members:
   :inherited-members:
   :undoc-members:
+
+.. autoclass:: ModuleSimpleCache
+  :members:
+  :inherited-members:
+  :undoc-members:

@@ -10,7 +10,7 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-""" A simple non-persistent cache with timout
+""" Simple non-persistent caches with timeout
 
 $Id$
 """
@@ -68,4 +68,22 @@ class TimeoutCache(object):
 
     def setTimeout(self, timeout):
         self.timeout = timeout
+
+
+CACHE = {}
+TIMEOUTS = {}
+
+class ModuleTimeoutCache(TimeoutCache):
+    """ Simple module-level cache with timeout
+
+    All cache instances share the module level cache. It is important 
+    for the applications that use these cache instances to ensure the
+    cache keys are unique across all applications.
+    """
+    implements(ITimeoutCache)
+
+    def __init__(self):
+        self.timeout = 600
+        self.timeouts = TIMEOUTS
+        self.cache = CACHE
 

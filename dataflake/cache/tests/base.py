@@ -28,3 +28,4 @@ class CacheTestCase(unittest.TestCase):
 
     def setUp(self):
         self.cache = self._makeOne()
+        self.cache.invalidate()
