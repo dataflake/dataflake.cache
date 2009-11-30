@@ -27,7 +27,9 @@ API documentation for :mod:`dataflake.cache`.
 .. toctree::
    :maxdepth: 2
 
-   api
+   api/api
+   api/simple
+   api/timeout
 
 Support
 -------
