@@ -33,11 +33,18 @@ class TimeoutCache(object):
         self.timeout = 600
 
     def set(self, key, object):
+        """ Store a key/value pair
+        """
         key = key.lower()
         self.cache[key] = object
         self.timeouts[key] = time.time()
 
     def get(self, key=None, default=None):
+        """ Get value for the given key, or all values if no key is passed
+
+        If no value is found or the value is older than the allowed 
+        timeout, the default value will be returned.
+        """
         if key:
             key = key.lower()
             value = self.cache.get(key, None)
@@ -56,6 +63,8 @@ class TimeoutCache(object):
                      if now < self.timeouts.get(x[0], MAX_SECS) + self.timeout]
 
     def invalidate(self, key=None):
+        """ Invalidate the given key, or all key/values if no key is passed.
+        """
         if key is not None:
             key = key.lower()
             if self.cache.has_key(key):

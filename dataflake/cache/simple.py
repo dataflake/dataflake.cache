@@ -27,15 +27,23 @@ class SimpleCache(object):
         self.cache = {}
 
     def set(self, key, value):
+        """ Store a key/value pair
+        """
         self.cache[key] = value
 
     def get(self, key=None, default=None):
+        """ Get value for the given key, or all values if no key is passed
+
+        If no value is found the default value will be returned.
+        """
         if key:
             return self.cache.get(key, default)
         else:
             return self.cache.values()[:]
 
     def invalidate(self, key=None):
+        """ Invalidate the given key, or all key/values if no key is passed.
+        """
         if key:
             try:
                 del self.cache[key]
