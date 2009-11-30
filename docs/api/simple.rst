@@ -9,7 +9,7 @@
   :inherited-members:
   :undoc-members:
 
-.. autoclass:: ModuleSimpleCache
+.. autoclass:: LockingSimpleCache
   :members:
   :inherited-members:
   :undoc-members:

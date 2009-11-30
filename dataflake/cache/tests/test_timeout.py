@@ -85,26 +85,16 @@ class TestTimeoutCache(CacheTestCase):
         self.failIf(cache2.get('key1'))
 
 
-class TestModuleTimeoutCache(TestTimeoutCache):
+class TestLockingTimeoutCache(TestTimeoutCache):
 
     def _getTargetClass(self):
-        from dataflake.cache.timeout import ModuleTimeoutCache
-        return ModuleTimeoutCache
-
-    def test_instancelevel_sharing(self):
-        # Make sure cache values are shared across instances
-        cache1 = self._makeOne()
-        cache2 = self._makeOne()
-    
-        cache1.set('key1', 'value1')
-        cache2.set('key2', 'value2')
-
-        self.assertEquals(set(cache1.get()), set(cache2.get()))
+        from dataflake.cache.timeout import LockingTimeoutCache
+        return LockingTimeoutCache
 
 
 def test_suite():
     return unittest.TestSuite((
         unittest.makeSuite(TestTimeoutCache),
-        unittest.makeSuite(TestModuleTimeoutCache),
+        unittest.makeSuite(TestLockingTimeoutCache),
         ))
 

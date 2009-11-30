@@ -15,8 +15,13 @@
 $Id$
 """
 
-from dataflake.cache.interfaces import ICache
+from threading import RLock
+
 from zope.interface import implements
+
+from dataflake.cache.interfaces import ICache
+from dataflake.cache.utils import protect_with_lock
+
 
 class SimpleCache(object):
     """ Simple instance-level cache
@@ -53,10 +58,8 @@ class SimpleCache(object):
             self.cache = {}
 
 
-CACHE = {}
-
-class ModuleSimpleCache(SimpleCache):
-    """ Simple module-level cache
+class LockingSimpleCache(SimpleCache):
+    """ Simple module-level cache protected by a lock serializing access
 
     All cache instances share the module level cache. It is important 
     for the applications that use these cache instances to ensure the
@@ -65,4 +68,26 @@ class ModuleSimpleCache(SimpleCache):
     implements(ICache)
 
     def __init__(self):
-        self.cache = CACHE
+        super(LockingSimpleCache, self).__init__()
+        self.lock = RLock()
+
+    @protect_with_lock
+    def set(self, key, value):
+        """ Store a key/value pair
+        """
+        return super(LockingSimpleCache, self).set(key, value)
+
+    @protect_with_lock
+    def get(self, key=None, default=None):
+        """ Get value for the given key, or all values if no key is passed
+
+        If no value is found the default value will be returned.
+        """
+        return super(LockingSimpleCache, self).get(key, default)
+
+    @protect_with_lock
+    def invalidate(self, key=None):
+        """ Invalidate the given key, or all key/values if no key is passed.
+        """
+        return super(LockingSimpleCache, self).invalidate(key)
+

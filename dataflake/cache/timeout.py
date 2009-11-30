@@ -15,10 +15,13 @@
 $Id$
 """
 
+from threading import RLock
 import time
 
-from dataflake.cache.interfaces import ITimeoutCache
 from zope.interface import implements
+
+from dataflake.cache.interfaces import ITimeoutCache
+from dataflake.cache.utils import protect_with_lock
 
 MAX_SECS = 2147483647
 
@@ -81,11 +84,8 @@ class TimeoutCache(object):
         self.timeout = timeout
 
 
-CACHE = {}
-TIMEOUTS = {}
-
-class ModuleTimeoutCache(TimeoutCache):
-    """ Simple module-level cache with timeout
+class LockingTimeoutCache(TimeoutCache):
+    """ Simple module-level cache protected by a lock serializing access
 
     All cache instances share the module level cache. It is important 
     for the applications that use these cache instances to ensure the
@@ -94,7 +94,26 @@ class ModuleTimeoutCache(TimeoutCache):
     implements(ITimeoutCache)
 
     def __init__(self):
-        self.timeout = 600
-        self.timeouts = TIMEOUTS
-        self.cache = CACHE
+        super(LockingTimeoutCache, self).__init__()
+        self.lock = RLock()
+
+    @protect_with_lock
+    def set(self, key, value):
+        """ Store a key/value pair
+        """
+        return super(LockingTimeoutCache, self).set(key, value)
+
+    @protect_with_lock
+    def get(self, key=None, default=None):
+        """ Get value for the given key, or all values if no key is passed
+
+        If no value is found the default value will be returned.
+        """
+        return super(LockingTimeoutCache, self).get(key, default)
+
+    @protect_with_lock
+    def invalidate(self, key=None):
+        """ Invalidate the given key, or all key/values if no key is passed.
+        """
+        return super(LockingTimeoutCache, self).invalidate(key)
 
