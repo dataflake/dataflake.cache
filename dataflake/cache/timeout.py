@@ -86,10 +86,6 @@ class TimeoutCache(object):
 
 class LockingTimeoutCache(TimeoutCache):
     """ Simple module-level cache protected by a lock serializing access
-
-    All cache instances share the module level cache. It is important 
-    for the applications that use these cache instances to ensure the
-    cache keys are unique across all applications.
     """
     implements(ITimeoutCache)
 

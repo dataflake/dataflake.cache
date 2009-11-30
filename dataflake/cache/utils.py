@@ -15,9 +15,15 @@
 $Id$
 """
 
+try:
+    from functools import wraps
+except ImportError:
+    wraps = lambda func: func
+
 def protect_with_lock(decorated):
     """ Decorator function: serialize access to 'decorated' using a lock
     """
+    @wraps(decorated)
     def protector(self, *args, **kw):
         """ The function protecting the decorated function
         """
