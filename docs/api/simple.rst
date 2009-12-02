@@ -1,3 +1,5 @@
+.. _simple_cache_module:
+
 :mod:`dataflake.cache.simple`
 --------------------------------
 

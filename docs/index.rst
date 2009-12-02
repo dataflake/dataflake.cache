@@ -16,6 +16,7 @@ Narrative documentation explaining how to use :mod:`dataflake.cache`.
    :maxdepth: 2
 
    install
+   usage
    development
    glossary
 

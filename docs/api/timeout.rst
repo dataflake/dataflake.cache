@@ -1,3 +1,5 @@
+.. _timeout_cache_module:
+
 :mod:`dataflake.cache.timeout`
 --------------------------------
 
