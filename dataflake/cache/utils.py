@@ -18,7 +18,27 @@ $Id$
 try:
     from functools import wraps
 except ImportError:
-    wraps = lambda func: func
+    ASSIGN = ('__module__', '__name__', '__doc__')
+    UPDATE = ('__dict__',)
+
+    def wrap(_wrapped_func, *args, **kw):
+        def _wrapped(*moreargs, **morekw):
+            return _wrapped_func(*(args+moreargs), **dict(kw, **morekw))
+        return _wrapped
+
+    def update_wrapper(wrapper, wrapped, assigned=ASSIGN, updated=UPDATE):
+        for attr in assigned:
+            setattr(wrapper, attr, getattr(wrapped, attr))
+        for attr in updated:
+            getattr(wrapper, attr).update(getattr(wrapped, attr))
+        return wrapper
+
+    def wraps(wrapped, assigned=ASSIGN, updated=UPDATE):
+        return wrap( update_wrapper
+                   , wrapped=wrapped
+                   , assigned=assigned
+                   , updated=updated
+                   )
 
 def protect_with_lock(decorated):
     """ Decorator function: serialize access to 'decorated' using a lock
