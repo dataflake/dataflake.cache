@@ -53,6 +53,9 @@ class TestSimpleCache(CacheTestCase):
         self.cache.set('key3', 'NEW')
         self.assertEquals(self.cache.get('key3'), 'NEW')
 
+        self.cache.invalidate('UNKNOWN')
+        self.assertEquals(set(self.cache.get()), set(['value2', 'NEW']))
+
         self.cache.invalidate()
         self.failIf(self.cache.get())
 
