@@ -36,15 +36,12 @@ class SimpleCache(object):
         """
         self.cache[key] = value
 
-    def get(self, key=None, default=None):
-        """ Get value for the given key, or all values if no key is passed
+    def get(self, key, default=None):
+        """ Get value for the given key
 
         If no value is found the default value will be returned.
         """
-        if key:
-            return self.cache.get(key, default)
-        else:
-            return self.cache.values()[:]
+        return self.cache.get(key, default)
 
     def invalidate(self, key=None):
         """ Invalidate the given key, or all key/values if no key is passed.
@@ -56,6 +53,23 @@ class SimpleCache(object):
                 pass
         else:
             self.cache = {}
+
+    def keys(self):
+        """ Return all cache keys
+        """
+        return self.cache.keys()
+
+    def values(self):
+        """ Return all cached values
+        """
+        return self.cache.values()
+
+    def items(self):
+        """ Return all cached keys and values
+
+        Returns a sequence of (key, value) tuples.
+        """
+        return self.cache.items()
 
 
 class LockingSimpleCache(SimpleCache):
@@ -74,8 +88,8 @@ class LockingSimpleCache(SimpleCache):
         return super(LockingSimpleCache, self).set(key, value)
 
     @protect_with_lock
-    def get(self, key=None, default=None):
-        """ Get value for the given key, or all values if no key is passed
+    def get(self, key, default=None):
+        """ Get value for the given key
 
         If no value is found the default value will be returned.
         """
@@ -86,4 +100,3 @@ class LockingSimpleCache(SimpleCache):
         """ Invalidate the given key, or all key/values if no key is passed.
         """
         return super(LockingSimpleCache, self).invalidate(key)
-

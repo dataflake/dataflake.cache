@@ -33,45 +33,73 @@ class TestTimeoutCache(CacheTestCase):
         verifyClass(ITimeoutCache, self._getTargetClass())
 
     def test_initial_state(self):
-        self.failIf(self.cache.get())
+        self.failIf(self.cache.keys())
+        self.failIf(self.cache.values())
+        self.failIf(self.cache.items())
 
     def test_get_set_clear(self):
-        self.failIf(self.cache.get())
+        self.failIf(self.cache.keys())
+        self.failIf(self.cache.values())
+        self.failIf(self.cache.items())
 
         self.cache.set('key1', 'value1')
-        self.assertEquals(self.cache.get(), ['value1'])
+        self.assertEquals(self.cache.keys(), ['key1'])
+        self.assertEquals(self.cache.values(), ['value1'])
+        self.assertEquals(self.cache.items(), [('key1', 'value1')])
         self.assertEquals(self.cache.get('key1'), 'value1')
 
         self.cache.set('key2', 'value2')
-        self.assertEquals(set(self.cache.get()), set(['value1', 'value2']))
+        self.assertEquals(set(self.cache.keys()), set(['key1', 'key2']))
+        self.assertEquals(set(self.cache.values()), set(['value1', 'value2']))
+        self.assertEquals( set(self.cache.items())
+                         , set([('key1', 'value1'), ('key2', 'value2')])
+                         )
         self.assertEquals(self.cache.get('key2'), 'value2')
 
         self.cache.set('key3', 'value3')
         self.cache.invalidate('key1')
-        self.assertEquals(set(self.cache.get()), set(['value2', 'value3']))
+        self.assertEquals(set(self.cache.keys()), set(['key2', 'key3']))
+        self.assertEquals(set(self.cache.values()), set(['value2', 'value3']))
+        self.assertEquals( set(self.cache.items())
+                         , set([('key2', 'value2'), ('key3', 'value3')])
+                         )
         self.failIf(self.cache.get('key1'))
 
         self.cache.set('key3', 'NEW')
         self.assertEquals(self.cache.get('key3'), 'NEW')
 
+        self.cache.invalidate('UNKNOWN')
+        self.assertEquals(set(self.cache.keys()), set(['key2', 'key3']))
+        self.assertEquals(set(self.cache.values()), set(['value2', 'NEW']))
+        self.assertEquals( set(self.cache.items())
+                         , set([('key2', 'value2'), ('key3', 'NEW')])
+                         )
+
         self.cache.invalidate()
-        self.failIf(self.cache.get())
+        self.failIf(self.cache.keys())
+        self.failIf(self.cache.values())
+        self.failIf(self.cache.items())
 
     def test_timeout(self):
         # initial state
-        self.assertEquals(self.cache.timeout, 600)
+        self.assertEquals(self.cache.getTimeout(), 600)
 
         self.cache.setTimeout(0.1)
-        self.assertEquals(self.cache.timeout, 0.1)
+        self.assertEquals(self.cache.getTimeout(), 0.1)
 
         self.cache.set('key1', 'value1')
-        self.assertEquals(self.cache.get(), ['value1'])
+        self.assertEquals(self.cache.keys(), ['key1'])
+        self.assertEquals(self.cache.values(), ['value1'])
+        self.assertEquals(self.cache.items(), [('key1', 'value1')])
         self.assertEquals(self.cache.get('key1'), 'value1')
 
         # Wait for the timeout. The key must be gone.
         time.sleep(0.3)
-        self.failIf(self.cache.get())
+        self.failIf(self.cache.keys())
+        self.failIf(self.cache.values())
+        self.failIf(self.cache.items())
         self.failIf(self.cache.get('key1'))
+
 
     def test_instancelevel_sharing(self):
         # Make sure cache values are *not* shared across instances

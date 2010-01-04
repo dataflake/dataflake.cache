@@ -40,30 +40,25 @@ class TimeoutCache(object):
         """
         key = key.lower()
         self.cache[key] = object
-        self.timeouts[key] = time.time()
+        self.timeouts[key] = time.time() + self.timeout
 
-    def get(self, key=None, default=None):
-        """ Get value for the given key, or all values if no key is passed
+    def get(self, key, default=None):
+        """ Get value for the given key
 
         If no value is found or the value is older than the allowed 
         timeout, the default value will be returned.
         """
-        if key:
-            key = key.lower()
-            value = self.cache.get(key, None)
+        key = key.lower()
+        value = self.cache.get(key, None)
 
-            if value is None:
-                return default
+        if value is None:
+            return default
 
-            if time.time() < self.timeouts.get(key, MAX_SECS) + self.timeout:
-                return value
-            else:
-                self.invalidate(key)
-                return default
+        if time.time() < self.timeouts.get(key, MAX_SECS):
+            return value
         else:
-            now = time.time()
-            return [x[1] for x in self.cache.items()
-                     if now < self.timeouts.get(x[0], MAX_SECS) + self.timeout]
+            self.invalidate(key)
+            return default
 
     def invalidate(self, key=None):
         """ Invalidate the given key, or all key/values if no key is passed.
@@ -78,10 +73,38 @@ class TimeoutCache(object):
             self.cache = {}
             self.timeouts = {}
 
+    def keys(self):
+        """ Return all cache keys
+        """
+        now = time.time()
+        return [x for x in self.cache.keys()
+                                 if now < self.timeouts.get(x, MAX_SECS)]
+
+    def values(self):
+        """ Return all cached values
+        """
+        now = time.time()
+        return [x[1] for x in self.cache.items()
+                                if now < self.timeouts.get(x[0], MAX_SECS)]
+
+    def items(self):
+        """ Return all cached keys and values
+
+        Returns a sequence of (key, value) tuples.
+        """
+        now = time.time()
+        return [x for x in self.cache.items()
+                                if now < self.timeouts.get(x[0], MAX_SECS)]
+
     def setTimeout(self, timeout):
         """ Set a timeout value in seconds
         """
         self.timeout = timeout
+
+    def getTimeout(self):
+        """ Get the timeout value
+        """
+        return self.timeout
 
 
 class LockingTimeoutCache(TimeoutCache):
@@ -100,8 +123,8 @@ class LockingTimeoutCache(TimeoutCache):
         return super(LockingTimeoutCache, self).set(key, value)
 
     @protect_with_lock
-    def get(self, key=None, default=None):
-        """ Get value for the given key, or all values if no key is passed
+    def get(self, key, default=None):
+        """ Get value for the given key
 
         If no value is found the default value will be returned.
         """

@@ -25,8 +25,8 @@ class ICache(Interface):
         """ Store a key/value pair
         """
 
-    def get(key=None, default=None):
-        """ Get value for the given key, or all values if no key is passed
+    def get(key, default=None):
+        """ Get value for the given key
 
         If no value is found or the value is invalid, the default value
         will be returned.
@@ -36,6 +36,19 @@ class ICache(Interface):
         """ Invalidate the given key, or all key/values if no key is passed.
         """
 
+    def keys():
+        """ Return all cache keys
+        """
+
+    def values():
+        """ Return all cached values
+        """
+
+    def items():
+        """ Return all cached keys and values
+
+        Returns a sequence of (key, value) tuples.
+        """
 
 class ITimeoutCache(ICache):
     """ Simple cache with a timeout
@@ -45,4 +58,8 @@ class ITimeoutCache(ICache):
 
     def setTimeout(timeout):
         """ Set a timeout value in seconds
+        """
+
+    def getTimeout():
+        """ Get the timeout value
         """
