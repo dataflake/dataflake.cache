@@ -69,5 +69,3 @@ PyPI and upload the Sphinx documentation to PyPI::
 
 The ``bin/buildout`` will make sure the correct package information is
 used.
-
-.. include:: ../CHANGES.txt

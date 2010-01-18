@@ -1,12 +1,9 @@
 Installation
 ============
 
-How To Install
---------------
-
 You will need `Python <http://python.org>`_ version 2.4 or better to
 run :mod:`dataflake.cache`.  Development of 
-:mod:`dataflake.cache` is done primarily under Python 2.4, so 
+:mod:`dataflake.cache` is done primarily under Python 2.6, so 
 that version is recommended.
 
 .. warning:: To successfully install :mod:`dataflake.cache`, 
