@@ -2,8 +2,6 @@
  dataflake.cache
 =================
 
-.. contents::
-
 This package provides a set of simple cache implementations for use in
 Python code. Its root are in the internally-used SimpleCache module 
 from Products.LDAPUserFolder.

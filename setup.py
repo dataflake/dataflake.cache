@@ -27,8 +27,6 @@ setup(name='dataflake.cache',
       description='Simple caching library',
       long_description=( read('README.txt') 
                        + _boundary 
-                       + read('CHANGES.txt')
-                       + _boundary 
                        + "Download\n========"
                        ),
       classifiers=[
