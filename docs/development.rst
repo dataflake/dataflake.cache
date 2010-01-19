@@ -65,7 +65,7 @@ build the distribution, upload it to PyPI, register the metadata with
 PyPI and upload the Sphinx documentation to PyPI::
 
   $ bin/buildout -o
-  $ bin/docpy setup.py sdist upload register upload_sphinx --upload-dir=docs/_build/html
+  $ bin/docpy setup.py sdist register upload upload_sphinx --upload-dir=docs/_build/html
 
 The ``bin/buildout`` will make sure the correct package information is
 used.
