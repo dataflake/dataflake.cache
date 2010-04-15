@@ -23,7 +23,7 @@ URL to retrieve the latest development code as Python egg::
 Bug tracker
 ===========
 For bug reports, suggestions or questions please use the 
-dataflake bug tracker at 
+Launchpad bug tracker at 
 `https://bugs.launchpad.net/dataflake.cache 
 <https://bugs.launchpad.net/dataflake.cache>`_.
 
