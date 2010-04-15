@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.2 (unreleased)
+----------------
+
+
 1.1 (2010-04-15)
 ----------------
 - Update all bug tracker links to point to the new Launchpad
