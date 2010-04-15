@@ -12,7 +12,7 @@ Full documentation for the last released version is at http://packages.python.or
 
 Bug tracker
 ===========
-A bug tracker is available at http://www.dataflake.org/tracker/
+A bug tracker is available at https://bugs.launchpad.net/dataflake.cache
 
 SVN version
 ===========
