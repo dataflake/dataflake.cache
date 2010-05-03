@@ -4,12 +4,17 @@ Change log
 1.2 (unreleased)
 ----------------
 - Python 3.1 compatibility
+- Updated Sphinx Makefile and configuration to be closer
+  to the latest Sphinx version
+- Greatly expand installation and testing documentation using 
+  ideas from Tres Seaver
 
 
 1.1 (2010-04-15)
 ----------------
 - Update all bug tracker links to point to the new Launchpad
   bug tracker at https://bugs.launchpad.net/dataflake.cache
+
 
 1.0 (2010-01-18)
 ----------------
