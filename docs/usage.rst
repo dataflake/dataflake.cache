@@ -6,8 +6,7 @@ with a shared simplified API.
 
 Using a SimpleCache object:
 
-.. code-block:: python
-   :linenos:
+.. doctest::
 
     >>> from dataflake.cache.simple import SimpleCache
     >>> cache = SimpleCache()
@@ -21,8 +20,7 @@ Using a SimpleCache object:
 To attach a specific lifetime to cached items, a cache 
 implementation with built-in timeout is provided as well:
 
-.. code-block:: python
-   :linenos:
+.. doctest::
 
     >>> import time
     >>> from dataflake.cache.timeout import TimeoutCache

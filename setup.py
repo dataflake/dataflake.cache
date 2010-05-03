@@ -29,6 +29,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
     extra['setup_requires'] = ['zope.fixers']
     extra['use_2to3_fixers'] = ['zope.fixers']
+    extra['convert_2to3_doctests'] = ['docs/usage.rst']
 
 setup(name='dataflake.cache',
       version=__version__,
