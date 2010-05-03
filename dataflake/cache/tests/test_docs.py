@@ -21,5 +21,5 @@ import unittest
 
 def test_suite():
     return unittest.TestSuite((
-        doctest.DocFileSuite('../../../docs/usage.rst', globs={'__name__': '__main__'}),
+        doctest.DocFileSuite('../../../docs/usage.rst'),
         ))
