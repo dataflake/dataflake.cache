@@ -14,6 +14,7 @@
 __version__ = '1.2dev'
 
 import os
+import sys
 
 from setuptools import setup, find_packages
 
@@ -21,6 +22,13 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 _boundary = '\n' + ('-' * 60) + '\n\n'
+extra = {}
+
+if sys.version_info >= (3,):
+    # Python 3 support:
+    extra['use_2to3'] = True
+    extra['setup_requires'] = ['zope.fixers']
+    extra['use_2to3_fixers'] = ['zope.fixers']
 
 setup(name='dataflake.cache',
       version=__version__,
@@ -37,6 +45,8 @@ setup(name='dataflake.cache',
         "Programming Language :: Python :: 2.4",
         "Programming Language :: Python :: 2.5",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.1",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='cache',
@@ -53,5 +63,6 @@ setup(name='dataflake.cache',
         ],
       zip_safe=False,
       test_suite='dataflake.cache.tests',
+      **extra
       )
 

@@ -65,9 +65,9 @@ class TimeoutCache(object):
         """
         if key is not None:
             key = key.lower()
-            if self.cache.has_key(key):
+            if key in self.cache:
                 del self.cache[key]
-            if self.timeouts.has_key(key):
+            if key in self.timeouts:
                 del self.timeouts[key]
         else:
             self.cache = {}
