@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.3 (unreleased)
+----------------
+
+
 1.2 (2010-05-09)
 ----------------
 - Python 3.1 compatibility
@@ -19,4 +23,4 @@ Change log
 1.0 (2010-01-18)
 ----------------
 - Initial release based on caching code formerly residing inside 
-  Products.LDAPUserFolder
+  Productsv.LDAPUserFolder
