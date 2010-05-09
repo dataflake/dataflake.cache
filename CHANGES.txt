@@ -1,7 +1,7 @@
 Change log
 ==========
 
-1.2 (unreleased)
+1.2 (2010-05-09)
 ----------------
 - Python 3.1 compatibility
 - Updated Sphinx Makefile and configuration to be closer
