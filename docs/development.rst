@@ -4,23 +4,15 @@
 
 Getting the source code
 =======================
-The source code is maintained in the Dataflake Subversion 
+The source code is maintained in the Dataflake Git
 repository. To check out the trunk:
 
 .. code-block:: sh
 
-  $ svn co http://svn.dataflake.org/svn/dataflake.cache/trunk/
+  $ git clone https://git.dataflake.org/git/dataflake.cache.git/
 
 You can also browse the code online at 
-`http://svn.dataflake.org/viewvc/dataflake.cache
-<http://svn.dataflake.org/viewvc/dataflake.cache/>`_.
-
-When using setuptools or zc.buildout you can use the following 
-URL to retrieve the latest development code as Python egg:
-
-.. code-block:: sh
-
-  $ http://svn.dataflake.org/svn/dataflake.cache/trunk#egg=dataflake.cache
+https://git.dataflake.org/cgit/dataflake.cache/
 
 
 Bug tracker
@@ -41,13 +33,13 @@ Sharing Your Changes
    or bug fixes, although it is possible that you may have tested your
    new code by updating existing tests.
 
-If you got a read-only checkout from the Subversion repository, and you
+If you got a read-only checkout from the Git repository, and you
 have made a change you would like to share, the best route is to let
-Subversion help you make a patch file:
+Git help you make a patch file:
 
 .. code-block:: sh
 
-   $ svn diff > dataflake.cache-cool_feature.patch
+   $ git diff > dataflake.cache-cool_feature.patch
 
 You can then upload that patch file as an attachment to a Launchpad bug
 report.

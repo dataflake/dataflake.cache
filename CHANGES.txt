@@ -3,6 +3,8 @@ Change log
 
 1.3 (unreleased)
 ----------------
+- Move the repository to Git (See 
+  https://git.dataflake.org/cgit/dataflake.cache/)
 
 
 1.2 (2010-05-09)
