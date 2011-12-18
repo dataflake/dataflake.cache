@@ -10,7 +10,8 @@ Documentation
 =============
 Full documentation for the last released version is at
 http://packages.python.org/dataflake.cache. For  documentation matching the
-current Git trunk please visit http://docs.dataflake.org/dataflake.cache.
+current development version please visit 
+http://docs.dataflake.org/dataflake.cache.
 
 Bug tracker
 ===========
