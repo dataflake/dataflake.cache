@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.4 (unreleased)
+----------------
+
+
 1.3 (2012-04-09)
 ----------------
 - Add convenience scripts for documentation generation
