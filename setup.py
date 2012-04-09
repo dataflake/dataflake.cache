@@ -24,10 +24,11 @@ def read(*rnames):
 _boundary = '\n' + ('-' * 60) + '\n\n'
 extra = {}
 
+setup_requires = ['setuptools-git']
 if sys.version_info >= (3,):
     # Python 3 support:
+    setup_requires.append('zope.fixers')
     extra['use_2to3'] = True
-    extra['setup_requires'] = ['zope.fixers']
     extra['use_2to3_fixers'] = ['zope.fixers']
     extra['convert_2to3_doctests'] = ['docs/usage.rst']
 
@@ -43,7 +44,15 @@ setup(name='dataflake.cache',
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Zope Public License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.4",
+        "Programming Language :: Python :: 2.5",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.1",
+        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='cache',
@@ -54,13 +63,21 @@ setup(name='dataflake.cache',
       packages=find_packages(),
       include_package_data=True,
       namespace_packages=['dataflake'],
-      setup_requires=['setuptools-git'],
+      setup_requires=setup_requires,
       install_requires=[
         'setuptools',
         'zope.interface',
         ],
       zip_safe=False,
       test_suite='dataflake.cache.tests',
+      extras_require={ 'docs': [ 'sphinx'
+                               , 'repoze.sphinx.autointerface'
+                               , 'pkginfo'
+                               , 'sphinx-pypi-upload'
+                               , 'zc.rst2'
+                               ]
+                     , 'testing': ['nose', 'coverage']
+                     },
       **extra
       )
 

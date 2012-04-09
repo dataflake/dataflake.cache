@@ -12,3 +12,7 @@
 
 # /docs/
 /docs/_build
+
+.tox/
+coverage.xml
+nosetests.xml
