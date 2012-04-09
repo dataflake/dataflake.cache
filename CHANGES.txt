@@ -1,7 +1,7 @@
 Change log
 ==========
 
-1.3 (unreleased)
+1.3 (2012-04-09)
 ----------------
 - Add convenience scripts for documentation generation
 - Add configuration file for the Tox test harness
