@@ -27,10 +27,7 @@ extra = {}
 setup_requires = ['setuptools-git']
 if sys.version_info >= (3,):
     # Python 3 support:
-    setup_requires.append('zope.fixers')
     extra['use_2to3'] = True
-    extra['use_2to3_fixers'] = ['zope.fixers']
-    extra['convert_2to3_doctests'] = ['docs/usage.rst']
 
 setup(name='dataflake.cache',
       version=__version__,
