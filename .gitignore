@@ -9,10 +9,12 @@
 /.installed.cfg
 /.coverage
 /bin
+/.tox
+coverage.xml
+nosetests.xml
+*.class
 
 # /docs/
 /docs/_build
 
-.tox/
-coverage.xml
-nosetests.xml
+
