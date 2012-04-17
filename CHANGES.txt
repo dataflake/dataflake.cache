@@ -3,6 +3,7 @@ Change log
 
 1.4 (unreleased)
 ----------------
+- add Jython to the supported Python implementations
 
 
 1.3 (2012-04-09)
