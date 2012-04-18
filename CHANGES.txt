@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.5 (unreleased)
+----------------
+
+
 1.4 (2012-04-18)
 ----------------
 - change test code to work under Python 2 and Python 3 in order 
