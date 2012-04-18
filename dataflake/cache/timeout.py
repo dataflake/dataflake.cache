@@ -18,17 +18,17 @@ $Id$
 from threading import RLock
 import time
 
-from zope.interface import implements
+from zope.interface import implementer
 
 from dataflake.cache.interfaces import ITimeoutCache
 from dataflake.cache.utils import protect_with_lock
 
 MAX_SECS = 2147483647
 
+@implementer(ITimeoutCache)
 class TimeoutCache(object):
     """ A simple non-persistent cache with timeout
     """
-    implements(ITimeoutCache)
 
     def __init__(self):
         self.cache = {}
@@ -107,10 +107,10 @@ class TimeoutCache(object):
         return self.timeout
 
 
+@implementer(ITimeoutCache)
 class LockingTimeoutCache(TimeoutCache):
     """ Simple module-level cache protected by a lock serializing access
     """
-    implements(ITimeoutCache)
 
     def __init__(self):
         super(LockingTimeoutCache, self).__init__()

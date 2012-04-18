@@ -17,16 +17,16 @@ $Id$
 
 from threading import RLock
 
-from zope.interface import implements
+from zope.interface import implementer
 
 from dataflake.cache.interfaces import ICache
 from dataflake.cache.utils import protect_with_lock
 
 
+@implementer(ICache)
 class SimpleCache(object):
     """ Simple instance-level cache
     """
-    implements(ICache)
 
     def __init__(self):
         self.cache = {}
@@ -72,10 +72,10 @@ class SimpleCache(object):
         return self.cache.items()
 
 
+@implementer(ICache)
 class LockingSimpleCache(SimpleCache):
     """ Simple module-level cache protected by a lock serializing access
     """
-    implements(ICache)
 
     def __init__(self):
         super(LockingSimpleCache, self).__init__()

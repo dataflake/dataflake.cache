@@ -3,6 +3,11 @@ Change log
 
 1.4 (unreleased)
 ----------------
+- moving from ``zope.interface.implements`` to the decorator 
+  function ``zope.interface.implementer`` which is supported in 
+  Python 3 without the need for the ``zope.fixers`` 2to3 
+  plugin. The decorator syntax means dropping support for 
+  Python 2.4 and 2.5, though.
 - add Jython to the supported Python implementations
 
 
