@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2009 Jens Vagelpohl and Contributors. All Rights Reserved.
+# Copyright (c) 2009-2012 Jens Vagelpohl and Contributors. All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
 # Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
@@ -22,9 +22,6 @@ class CacheTestCase(unittest.TestCase):
 
     def _makeOne(self, *args, **kw):
         return self._getTargetClass()(*args, **kw)
-
-    def _getTargetClass(self):
-        raise NotImplementedError
 
     def setUp(self):
         self.cache = self._makeOne()

@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2009-2010 Jens Vagelpohl and Contributors. All Rights Reserved.
+# Copyright (c) 2009-2012 Jens Vagelpohl and Contributors. All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
 # Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
@@ -21,8 +21,8 @@ from dataflake.cache.tests.base import CacheTestCase
 
 try:
     unicode
-except:
-    unicode = str
+except NameError: #pragma NO COVER Python3
+    unicode = str #pragma NO COVER Python3
 
        
 class TestSimpleCache(CacheTestCase):
