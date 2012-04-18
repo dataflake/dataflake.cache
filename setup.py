@@ -22,12 +22,7 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 _boundary = '\n' + ('-' * 60) + '\n\n'
-extra = {}
 
-setup_requires = ['setuptools-git']
-if sys.version_info >= (3,):
-    # Python 3 support:
-    extra['use_2to3'] = True
 
 setup(name='dataflake.cache',
       version=__version__,
@@ -59,7 +54,7 @@ setup(name='dataflake.cache',
       packages=find_packages(),
       include_package_data=True,
       namespace_packages=['dataflake'],
-      setup_requires=setup_requires,
+      setup_requires=['setuptools-git'],
       install_requires=[
         'setuptools',
         'zope.interface',
@@ -74,6 +69,5 @@ setup(name='dataflake.cache',
                                ]
                      , 'testing': ['nose', 'coverage']
                      },
-      **extra
       )
 

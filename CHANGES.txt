@@ -3,6 +3,8 @@ Change log
 
 1.4 (unreleased)
 ----------------
+- change test code to work under Python 2 and Python 3 in order 
+  to drop any 2to3 dependency.
 - moving from ``zope.interface.implements`` to the decorator 
   function ``zope.interface.implementer`` which is supported in 
   Python 3 without the need for the ``zope.fixers`` 2to3 

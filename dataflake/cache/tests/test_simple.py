@@ -19,6 +19,11 @@ import unittest
 
 from dataflake.cache.tests.base import CacheTestCase
 
+try:
+    unicode
+except:
+    unicode = str
+
        
 class TestSimpleCache(CacheTestCase):
 
@@ -32,19 +37,19 @@ class TestSimpleCache(CacheTestCase):
         verifyClass(ICache, self._getTargetClass())
 
     def test_initial_state(self):
-        self.assertFalse(self.cache.keys())
-        self.assertFalse(self.cache.values())
-        self.assertFalse(self.cache.items())
+        self.assertFalse(list(self.cache.keys()))
+        self.assertFalse(list(self.cache.values()))
+        self.assertFalse(list(self.cache.items()))
 
     def test_get_set_clear(self):
-        self.assertFalse(self.cache.keys())
-        self.assertFalse(self.cache.values())
-        self.assertFalse(self.cache.items())
+        self.assertFalse(list(self.cache.keys()))
+        self.assertFalse(list(self.cache.values()))
+        self.assertFalse(list(self.cache.items()))
 
         self.cache.set('key1', 'value1')
-        self.assertEqual(self.cache.keys(), ['key1'])
-        self.assertEqual(self.cache.values(), ['value1'])
-        self.assertEqual(self.cache.items(), [('key1', 'value1')])
+        self.assertEqual(list(self.cache.keys()), ['key1'])
+        self.assertEqual(list(self.cache.values()), ['value1'])
+        self.assertEqual(list(self.cache.items()), [('key1', 'value1')])
         self.assertEqual(self.cache.get('key1'), 'value1')
 
         self.cache.set('key2', 'value2')
@@ -75,48 +80,68 @@ class TestSimpleCache(CacheTestCase):
                          )
 
         self.cache.invalidate()
-        self.assertFalse(self.cache.keys())
-        self.assertFalse(self.cache.values())
-        self.assertFalse(self.cache.items())
+        self.assertFalse(list(self.cache.keys()))
+        self.assertFalse(list(self.cache.values()))
+        self.assertFalse(list(self.cache.items()))
 
     def test_get_set_clear_unicode(self):
-        self.cache.set(u'key1', u'value1')
-        self.assertEqual(self.cache.keys(), [u'key1'])
-        self.assertEqual(self.cache.values(), [u'value1'])
-        self.assertEqual(self.cache.items(), [(u'key1', u'value1')])
-        self.assertEqual(self.cache.get(u'key1'), u'value1')
+        self.cache.set(unicode('key1'), unicode('value1'))
+        self.assertEqual(list(self.cache.keys()), [unicode('key1')])
+        self.assertEqual(list(self.cache.values()), [unicode('value1')])
+        self.assertEqual( list(self.cache.items())
+                        , [(unicode('key1'), unicode('value1'))]
+                        )
+        self.assertEqual(self.cache.get(unicode('key1')), unicode('value1'))
 
-        self.cache.set(u'key2', u'value2')
-        self.assertEqual(set(self.cache.keys()), set([u'key1', u'key2']))
-        self.assertEqual(set(self.cache.values()), set([u'value1', u'value2']))
+        self.cache.set(unicode('key2'), unicode('value2'))
+        self.assertEqual( set(self.cache.keys())
+                        , set([unicode('key1'), unicode('key2')])
+                        )
+        self.assertEqual( set(self.cache.values())
+                        , set([unicode('value1'), unicode('value2')])
+                        )
         self.assertEqual( set(self.cache.items())
-                         , set([(u'key1', u'value1'), (u'key2', u'value2')])
+                         , set([ (unicode('key1'), unicode('value1'))
+                               , (unicode('key2'), unicode('value2'))
+                               ])
                          )
-        self.assertEqual(self.cache.get(u'key2'), u'value2')
+        self.assertEqual(self.cache.get(unicode('key2')), unicode('value2'))
 
-        self.cache.set(u'key3', u'value3')
-        self.cache.invalidate(u'key1')
-        self.assertEqual(set(self.cache.keys()), set([u'key2', u'key3']))
-        self.assertEqual(set(self.cache.values()), set([u'value2', u'value3']))
+        self.cache.set(unicode('key3'), unicode('value3'))
+        self.cache.invalidate(unicode('key1'))
+        self.assertEqual( set(self.cache.keys())
+                        , set([unicode('key2'), unicode('key3')])
+                        )
+        self.assertEqual( set(self.cache.values())
+                        , set([unicode('value2'), unicode('value3')])
+                        )
         self.assertEqual( set(self.cache.items())
-                         , set([(u'key2', u'value2'), (u'key3', u'value3')])
+                         , set([ (unicode('key2'), unicode('value2'))
+                               , (unicode('key3'), unicode('value3'))
+                               ])
                          )
-        self.assertFalse(self.cache.get(u'key1'))
+        self.assertFalse(self.cache.get(unicode('key1')))
 
-        self.cache.set(u'key3', u'NEW')
-        self.assertEqual(self.cache.get(u'key3'), u'NEW')
+        self.cache.set(unicode('key3'), unicode('NEW'))
+        self.assertEqual(self.cache.get(unicode('key3')), unicode('NEW'))
 
-        self.cache.invalidate(u'UNKNOWN')
-        self.assertEqual(set(self.cache.keys()), set([u'key2', u'key3']))
-        self.assertEqual(set(self.cache.values()), set([u'value2', u'NEW']))
+        self.cache.invalidate(unicode('UNKNOWN'))
+        self.assertEqual( set(self.cache.keys())
+                        , set([unicode('key2'), unicode('key3')])
+                        )
+        self.assertEqual( set(self.cache.values())
+                        , set([unicode('value2'), unicode('NEW')])
+                        )
         self.assertEqual( set(self.cache.items())
-                         , set([(u'key2', u'value2'), (u'key3', u'NEW')])
+                         , set([ (unicode('key2'), unicode('value2'))
+                               , (unicode('key3'), unicode('NEW'))
+                               ])
                          )
 
         self.cache.invalidate()
-        self.assertFalse(self.cache.keys())
-        self.assertFalse(self.cache.values())
-        self.assertFalse(self.cache.items())
+        self.assertFalse(list(self.cache.keys()))
+        self.assertFalse(list(self.cache.values()))
+        self.assertFalse(list(self.cache.items()))
 
     def test_get_set_clear_nonascii(self):
         key1 = 'schl\xc3\xbcssel1'
@@ -126,9 +151,9 @@ class TestSimpleCache(CacheTestCase):
         key3 = 'schl\xc3\xbcssel3'
         value3 = '\xc3\xa4\xc3\xb6\xc3\xbc\xc3\x9f3'
         self.cache.set(key1, value1)
-        self.assertEqual(self.cache.keys(), [key1])
-        self.assertEqual(self.cache.values(), [value1])
-        self.assertEqual(self.cache.items(), [(key1, value1)])
+        self.assertEqual(list(self.cache.keys()), [key1])
+        self.assertEqual(list(self.cache.values()), [value1])
+        self.assertEqual(list(self.cache.items()), [(key1, value1)])
         self.assertEqual(self.cache.get(key1), value1)
 
         self.cache.set(key2, value2)
@@ -159,9 +184,9 @@ class TestSimpleCache(CacheTestCase):
                          )
 
         self.cache.invalidate()
-        self.assertFalse(self.cache.keys())
-        self.assertFalse(self.cache.values())
-        self.assertFalse(self.cache.items())
+        self.assertFalse(list(self.cache.keys()))
+        self.assertFalse(list(self.cache.values()))
+        self.assertFalse(list(self.cache.items()))
 
     def test_instancelevel_sharing(self):
         # Make sure cache values are *not* shared across instances
