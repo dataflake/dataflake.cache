@@ -1,8 +1,9 @@
 Change log
 ==========
 
-1.5 (unreleased)
+1.5 (2017-03-15)
 ----------------
+- Update bootstrap script and test with later Python versions
 
 
 1.4 (2012-04-18)
