@@ -11,7 +11,7 @@
 #
 ##############################################################################
 
-__version__ = '1.5dev'
+__version__ = '1.5.dev0'
 
 import os
 import sys
@@ -36,11 +36,10 @@ setup(name='dataflake.cache',
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Zope Public License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.1",
-        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: Jython",
         "Programming Language :: Python :: Implementation :: PyPy",
