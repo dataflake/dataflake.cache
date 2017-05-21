@@ -226,22 +226,10 @@ These instructions assume that you have a development sandbox set
 up using :mod:`zc.buildout` as the scripts used here are generated 
 by the buildout.
 
-The first thing to do when making a release is to check that the ReST
-to be uploaded to PyPI is valid:
-
-.. code-block:: sh
-
-  $ bin/docpy setup.py --long-description | bin/rst2 html > build/desc.html
-
-Once you're certain everything is as it should be, the following will
-build the distribution, upload it to PyPI, register the metadata with
-PyPI and upload the Sphinx documentation to PyPI:
-
 .. code-block:: sh
 
   $ bin/buildout -o
-  $ bin/docpy setup.py sdist upload upload_sphinx --upload-dir=docs/_build/html
+  $ bin/python setup.py sdist upload 
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
-

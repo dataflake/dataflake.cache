@@ -13,5 +13,5 @@ https://github.com/dataflake/dataflake.cache.git
 Documentation
 =============
 Full documentation for the last released version is at
-https://pythonhosted.org/dataflake.cache/.
+http://dataflakecache.readthedocs.io/.
 
