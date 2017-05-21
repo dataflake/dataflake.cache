@@ -11,21 +11,20 @@
 #
 ##############################################################################
 
-__version__ = '1.6.dev0'
-
 import os
 import sys
 
 from setuptools import setup, find_packages
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
 
 _boundary = '\n' + ('-' * 60) + '\n\n'
 
 
 setup(name='dataflake.cache',
-      version=__version__,
+      version=read('version.txt').strip(),
       description='Simple caching library',
       long_description=( read('README.rst') 
                        + _boundary 
@@ -39,6 +38,8 @@ setup(name='dataflake.cache',
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: Jython",
@@ -48,7 +49,7 @@ setup(name='dataflake.cache',
       keywords='cache',
       author="Jens Vagelpohl and contributors",
       author_email="jens@dataflake.org",
-      url="http://pypi.python.org/pypi/dataflake.cache",
+      url="https://github.com/dataflake/dataflake.cache",
       license="ZPL 2.1",
       packages=find_packages(),
       include_package_data=True,
