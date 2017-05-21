@@ -57,6 +57,9 @@ setup(name='dataflake.cache',
         'setuptools',
         'zope.interface',
         ],
+      extras_require={
+          'docs': ['Sphinx', 'pkginfo', 'repoze.sphinx.autointerface'],
+		},
       zip_safe=False,
       test_suite='dataflake.cache.tests',
       )

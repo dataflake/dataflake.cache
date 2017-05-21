@@ -162,6 +162,8 @@ Running the tests using  :mod:`zc.buildout`
   Generated script '.../bin/buildout'
   $ bin/buildout
   ...
+  Generated script '/usr/local/py26/dataflake.cache/bin/pkginfo'.
+  Generated interpreter '/usr/local/py26/dataflake.cache/bin/docpy'.
 
 Once you have a buildout, the tests can be run as follows:
 
