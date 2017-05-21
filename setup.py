@@ -53,20 +53,11 @@ setup(name='dataflake.cache',
       packages=find_packages(),
       include_package_data=True,
       namespace_packages=['dataflake'],
-      setup_requires=['setuptools-git'],
       install_requires=[
         'setuptools',
         'zope.interface',
         ],
       zip_safe=False,
       test_suite='dataflake.cache.tests',
-      extras_require={ 'docs': [ 'sphinx'
-                               , 'repoze.sphinx.autointerface'
-                               , 'pkginfo'
-                               , 'sphinx-pypi-upload'
-                               , 'zc.rst2'
-                               ]
-                     , 'testing': ['nose', 'coverage']
-                     },
       )
 
