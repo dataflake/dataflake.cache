@@ -222,12 +222,17 @@ Making a release
 
 These instructions assume that you have a development sandbox set 
 up using :mod:`zc.buildout` as the scripts used here are generated 
-by the buildout.
+by the buildout. The `twine` package is required for uploading the
+release packages.
 
 .. code-block:: sh
 
   $ bin/buildout -o
-  $ bin/python setup.py sdist upload 
+  $ bin/python setup.py sdist bdist_wheel
+  $ gpg --detach-sign -a dist/dataflake.cache-NNN.tar.gz
+  $ gpg --detach-sign -a dist/dataflake.cache-NNN-py2.py3-none-any.whl
+  $ twine upload dist/dataflake.cache-NNN.tar.gz dist/dataflake.cache-NNN.tar.gz.asc
+  $ twine upload dist/dataflake.cache-NNN-py2.py3-none-any.whl dist/dataflake.cache-NNN-py2.py3-none-any.whl.asc
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
