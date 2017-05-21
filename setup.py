@@ -27,7 +27,7 @@ _boundary = '\n' + ('-' * 60) + '\n\n'
 setup(name='dataflake.cache',
       version=__version__,
       description='Simple caching library',
-      long_description=( read('README.txt') 
+      long_description=( read('README.rst') 
                        + _boundary 
                        + "Download\n========"
                        ),
