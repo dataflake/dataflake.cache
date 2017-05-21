@@ -1,10 +1,8 @@
 Installation
 ============
 
-You will need `Python <http://python.org>`_ version 2.4 or better to
-run :mod:`dataflake.cache`.  Development of 
-:mod:`dataflake.cache` is done primarily under Python 2.7, so 
-that version is recommended.
+You will need `Python <http://python.org>`_ version 2.6 or better to
+run :mod:`dataflake.cache`.
 
 It is advisable to install :mod:`dataflake.cache` into a
 :term:`virtualenv` in order to obtain isolation from any "system"
@@ -14,7 +12,11 @@ versions of packages that are not compatible with your system Python).
 
 After you've got the requisite dependencies installed, you may install
 :mod:`dataflake.cache` into your Python environment using the 
-following command::
+following commands::
 
   $ easy_install dataflake.cache
+
+or...::
+
+  $ pip install dataflake.cache
 

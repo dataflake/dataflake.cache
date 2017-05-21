@@ -2,25 +2,11 @@
  Development
 =============
 
+
 Getting the source code
 =======================
-The source code is maintained in the Dataflake Git
-repository. To check out the trunk:
-
-.. code-block:: sh
-
-  $ git clone https://git.dataflake.org/git/dataflake.cache.git/
-
-You can also browse the code online at 
-https://git.dataflake.org/cgit/dataflake.cache/
-
-
-Bug tracker
-===========
-For bug reports, suggestions or questions please use the 
-Launchpad bug tracker at 
-`https://bugs.launchpad.net/dataflake.cache 
-<https://bugs.launchpad.net/dataflake.cache>`_.
+The source code is maintained on GitHub at 
+https://github.com/dataflake/dataflake.cache.git.
 
 
 Sharing Your Changes
@@ -33,16 +19,6 @@ Sharing Your Changes
    or bug fixes, although it is possible that you may have tested your
    new code by updating existing tests.
 
-If you got a read-only checkout from the Git repository, and you
-have made a change you would like to share, the best route is to let
-Git help you make a patch file:
-
-.. code-block:: sh
-
-   $ git diff > dataflake.cache-cool_feature.patch
-
-You can then upload that patch file as an attachment to a Launchpad bug
-report.
 
 Running the tests in a ``virtualenv``
 =====================================
@@ -193,6 +169,7 @@ Once you have a buildout, the tests can be run as follows:
 
 .. code-block:: sh
 
+   $ bin/test
    Running tests at all levels
    Running zope.testing.testrunner.layer.UnitTests tests:
      Set up zope.testing.testrunner.layer.UnitTests in 0.000 seconds.
@@ -212,7 +189,7 @@ to build the documentation, including testing its code snippets:
 .. code-block:: sh
 
    $ cd docs
-   $ PATH=../bin:$PATH make doctest html
+   $ make doctest html
    .../bin/sphinx-build -b doctest -d .../docs/_build/doctrees   \
         .../docs .../docs/_build/doctest
    ...
@@ -254,9 +231,7 @@ to be uploaded to PyPI is valid:
 
 .. code-block:: sh
 
-  $ bin/docpy setup.py --long-description | bin/rst2 html \
-    --link-stylesheet \
-    --stylesheet=http://www.python.org/styles/styles.css > build/desc.html
+  $ bin/docpy setup.py --long-description | bin/rst2 html > build/desc.html
 
 Once you're certain everything is as it should be, the following will
 build the distribution, upload it to PyPI, register the metadata with
@@ -265,7 +240,7 @@ PyPI and upload the Sphinx documentation to PyPI:
 .. code-block:: sh
 
   $ bin/buildout -o
-  $ bin/docpy setup.py sdist register upload upload_sphinx --upload-dir=docs/_build/html
+  $ bin/docpy setup.py sdist upload upload_sphinx --upload-dir=docs/_build/html
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
