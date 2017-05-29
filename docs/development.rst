@@ -228,7 +228,7 @@ release packages.
 .. code-block:: sh
 
   $ bin/buildout -o
-  $ bin/python setup.py sdist bdist_wheel upload --sign
+  $ python setup.py sdist bdist_wheel upload --sign
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
