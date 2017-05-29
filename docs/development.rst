@@ -228,11 +228,7 @@ release packages.
 .. code-block:: sh
 
   $ bin/buildout -o
-  $ bin/python setup.py sdist bdist_wheel
-  $ gpg --detach-sign -a dist/dataflake.cache-NNN.tar.gz
-  $ gpg --detach-sign -a dist/dataflake.cache-NNN-py2.py3-none-any.whl
-  $ twine upload dist/dataflake.cache-NNN.tar.gz dist/dataflake.cache-NNN.tar.gz.asc
-  $ twine upload dist/dataflake.cache-NNN-py2.py3-none-any.whl dist/dataflake.cache-NNN-py2.py3-none-any.whl.asc
+  $ bin/python setup.py sdist bdist_wheel upload --sign
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
