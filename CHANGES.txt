@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.8 (unreleased)
+----------------
+
+
 1.7 (2017-05-29)
 ----------------
 - added pypy3 to the tested tox environments
