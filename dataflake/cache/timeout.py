@@ -11,8 +11,6 @@
 #
 ##############################################################################
 """ Simple non-persistent caches with timeout
-
-$Id$
 """
 
 from threading import RLock
@@ -24,6 +22,7 @@ from dataflake.cache.interfaces import ITimeoutCache
 from dataflake.cache.utils import protect_with_lock
 
 MAX_SECS = 2147483647
+
 
 @implementer(ITimeoutCache)
 class TimeoutCache(object):
@@ -45,7 +44,7 @@ class TimeoutCache(object):
     def get(self, key, default=None):
         """ Get value for the given key
 
-        If no value is found or the value is older than the allowed 
+        If no value is found or the value is older than the allowed
         timeout, the default value will be returned.
         """
         key = key.lower()
@@ -78,14 +77,14 @@ class TimeoutCache(object):
         """
         now = time.time()
         return [x for x in self.cache.keys()
-                                 if now < self.timeouts.get(x, MAX_SECS)]
+                if now < self.timeouts.get(x, MAX_SECS)]
 
     def values(self):
         """ Return all cached values
         """
         now = time.time()
         return [x[1] for x in self.cache.items()
-                                if now < self.timeouts.get(x[0], MAX_SECS)]
+                if now < self.timeouts.get(x[0], MAX_SECS)]
 
     def items(self):
         """ Return all cached keys and values
@@ -94,7 +93,7 @@ class TimeoutCache(object):
         """
         now = time.time()
         return [x for x in self.cache.items()
-                                if now < self.timeouts.get(x[0], MAX_SECS)]
+                if now < self.timeouts.get(x[0], MAX_SECS)]
 
     def setTimeout(self, timeout):
         """ Set a timeout value in seconds
@@ -135,4 +134,3 @@ class LockingTimeoutCache(TimeoutCache):
         """ Invalidate the given key, or all key/values if no key is passed.
         """
         return super(LockingTimeoutCache, self).invalidate(key)
-

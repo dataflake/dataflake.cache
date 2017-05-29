@@ -11,8 +11,6 @@
 #
 ##############################################################################
 """ Simple non-persistent caches
-
-$Id$
 """
 
 from threading import RLock

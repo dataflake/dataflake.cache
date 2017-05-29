@@ -11,11 +11,10 @@
 #
 ##############################################################################
 """ utility functions and constants for dataflake.cache
-
-$Id$
 """
 
 from functools import wraps
+
 
 def protect_with_lock(decorated):
     """ Decorator function: serialize access to 'decorated' using a lock

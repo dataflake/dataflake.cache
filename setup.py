@@ -12,24 +12,23 @@
 ##############################################################################
 
 import os
-import sys
 
 from setuptools import setup, find_packages
+
+
+_boundary = '\n' + ('-' * 60) + '\n\n'
+_dl = 'Download\n========'
+
 
 def read(*rnames):
     with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
         return f.read()
 
-_boundary = '\n' + ('-' * 60) + '\n\n'
-
 
 setup(name='dataflake.cache',
       version=read('version.txt').strip(),
       description='Simple caching library',
-      long_description=( read('README.rst') 
-                       + _boundary 
-                       + "Download\n========"
-                       ),
+      long_description=(read('README.rst') + _boundary + _dl),
       classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -60,8 +59,7 @@ setup(name='dataflake.cache',
         ],
       extras_require={
           'docs': ['Sphinx', 'repoze.sphinx.autointerface'],
-		},
+        },
       zip_safe=False,
       test_suite='dataflake.cache.tests',
       )
-

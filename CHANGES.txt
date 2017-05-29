@@ -3,6 +3,9 @@ Change log
 
 1.7 (unreleased)
 ----------------
+- added pypy3 to the tested tox environments
+- added ``flake8`` PEP 8 testing to tox configuration
+- PEP 8 code cleanup
 
 
 1.6 (2017-05-21)

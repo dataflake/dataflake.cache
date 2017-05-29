@@ -11,11 +11,10 @@
 #
 ##############################################################################
 """ Cache implementation interfaces for dataflake.cache
-
-$Id$
 """
 
 from zope.interface import Interface
+
 
 class ICache(Interface):
     """ Simple cache interface
@@ -49,6 +48,7 @@ class ICache(Interface):
 
         Returns a sequence of (key, value) tuples.
         """
+
 
 class ITimeoutCache(ICache):
     """ Simple cache with a timeout

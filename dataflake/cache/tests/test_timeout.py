@@ -11,8 +11,6 @@
 #
 ##############################################################################
 """ Tests for the Timeout cache class
-
-$Id$
 """
 
 import time
@@ -20,7 +18,7 @@ import unittest
 
 from dataflake.cache.tests.base import CacheTestCase
 
-       
+
 class TestTimeoutCache(CacheTestCase):
 
     def _getTargetClass(self):
@@ -51,18 +49,16 @@ class TestTimeoutCache(CacheTestCase):
         self.cache.set('key2', 'value2')
         self.assertEqual(set(self.cache.keys()), set(['key1', 'key2']))
         self.assertEqual(set(self.cache.values()), set(['value1', 'value2']))
-        self.assertEqual( set(self.cache.items())
-                         , set([('key1', 'value1'), ('key2', 'value2')])
-                         )
+        self.assertEqual(set(self.cache.items()),
+                         set([('key1', 'value1'), ('key2', 'value2')]))
         self.assertEqual(self.cache.get('key2'), 'value2')
 
         self.cache.set('key3', 'value3')
         self.cache.invalidate('key1')
         self.assertEqual(set(self.cache.keys()), set(['key2', 'key3']))
         self.assertEqual(set(self.cache.values()), set(['value2', 'value3']))
-        self.assertEqual( set(self.cache.items())
-                         , set([('key2', 'value2'), ('key3', 'value3')])
-                         )
+        self.assertEqual(set(self.cache.items()),
+                         set([('key2', 'value2'), ('key3', 'value3')]))
         self.assertFalse(self.cache.get('key1'))
 
         self.cache.set('key3', 'NEW')
@@ -71,9 +67,8 @@ class TestTimeoutCache(CacheTestCase):
         self.cache.invalidate('UNKNOWN')
         self.assertEqual(set(self.cache.keys()), set(['key2', 'key3']))
         self.assertEqual(set(self.cache.values()), set(['value2', 'NEW']))
-        self.assertEqual( set(self.cache.items())
-                         , set([('key2', 'value2'), ('key3', 'NEW')])
-                         )
+        self.assertEqual(set(self.cache.items()),
+                         set([('key2', 'value2'), ('key3', 'NEW')]))
 
         self.cache.invalidate()
         self.assertFalse(self.cache.keys())
@@ -100,7 +95,6 @@ class TestTimeoutCache(CacheTestCase):
         self.assertFalse(self.cache.items())
         self.assertFalse(self.cache.get('key1'))
 
-
     def test_instancelevel_sharing(self):
         # Make sure cache values are *not* shared across instances
         cache1 = self._makeOne()
@@ -125,4 +119,3 @@ def test_suite():
         unittest.makeSuite(TestTimeoutCache),
         unittest.makeSuite(TestLockingTimeoutCache),
         ))
-
