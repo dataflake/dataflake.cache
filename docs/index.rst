@@ -36,7 +36,7 @@ Support
 -------
 
 If you need commercial support for this software package, please
-see  `http://www.zetwork.com <http://www.zetwork.com/>`_.
+see  `https://www.zetwork.com <https://www.zetwork.com/>`_.
 
 Indices and tables
 ------------------
