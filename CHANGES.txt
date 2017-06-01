@@ -3,6 +3,7 @@ Change log
 
 1.8 (unreleased)
 ----------------
+- use pkgutil-style namespace declaration
 
 
 1.7 (2017-05-29)
