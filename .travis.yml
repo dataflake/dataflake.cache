@@ -10,15 +10,12 @@ python:
     - "pypy-5.3.1" 
 
 install:
-    - pip install -U setuptools==33.1.1 coveralls coverage
+    - pip install -U setuptools==33.1.1 coverage
     - python bootstrap.py
     - bin/buildout
 
 script:
     - coverage run bin/test -v1
-after_success:
-    - coverage combine
-    - coveralls
 
 notifications:
     email: false

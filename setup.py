@@ -13,11 +13,13 @@
 
 import os
 
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
 
 _boundary = '\n' + ('-' * 60) + '\n\n'
 _dl = 'Download\n========'
+NAME = 'dataflake.cache'
 
 
 def read(*rnames):
@@ -25,7 +27,7 @@ def read(*rnames):
         return f.read()
 
 
-setup(name='dataflake.cache',
+setup(name=NAME,
       version=read('version.txt').strip(),
       description='Simple caching library',
       long_description=(read('README.rst') + _boundary + _dl),
@@ -48,7 +50,7 @@ setup(name='dataflake.cache',
       keywords='cache',
       author="Jens Vagelpohl and contributors",
       author_email="jens@dataflake.org",
-      url="https://github.com/dataflake/dataflake.cache",
+      url="https://github.com/dataflake/%s" % NAME,
       license="ZPL 2.1",
       packages=find_packages(),
       include_package_data=True,
@@ -57,8 +59,8 @@ setup(name='dataflake.cache',
         'zope.interface',
         ],
       extras_require={
-          'docs': ['Sphinx', 'repoze.sphinx.autointerface'],
+        'docs': ['Sphinx', 'repoze.sphinx.autointerface'],
         },
       zip_safe=False,
-      test_suite='dataflake.cache.tests',
+      test_suite='%s.tests' % NAME,
       )

@@ -1,6 +1,8 @@
 include *.cfg
+include *.py
 include *.rst
 include *.txt
+exclude .*.cfg
 
 recursive-include dataflake *
 
