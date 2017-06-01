@@ -15,5 +15,6 @@ bin/
 build/
 eggs/
 develop-eggs/
+dist/
 docs/_build/
 parts/
