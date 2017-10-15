@@ -2,7 +2,7 @@
    :target: https://travis-ci.org/dataflake/dataflake.cache
 
 .. image:: https://readthedocs.org/projects/dataflakecache/badge/?version=latest
-   :target: https://https://dataflakecache.readthedocs.io
+   :target: https://dataflakecache.readthedocs.io
    :alt: Documentation Status
 
 .. image:: https://img.shields.io/pypi/v/dataflake.cache.svg
