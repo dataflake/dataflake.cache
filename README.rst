@@ -1,3 +1,18 @@
+.. image:: https://api.travis-ci.org/dataflake/dataflake.cache.svg?branch=master
+   :target: https://travis-ci.org/dataflake/dataflake.cache
+
+.. image:: https://readthedocs.org/projects/dataflakecache/badge/?version=latest
+   :target: https://https://dataflakecache.readthedocs.io
+   :alt: Documentation Status
+
+.. image:: https://img.shields.io/pypi/v/dataflake.cache.svg
+   :target: https://pypi.python.org/pypi/dataflake.cache
+   :alt: PyPI
+
+.. image:: https://img.shields.io/pypi/pyversions/dataflake.cache.svg
+   :target: https://pypi.python.org/pypi/dataflake.cache
+   :alt: Python versions
+
 =================
  dataflake.cache
 =================
