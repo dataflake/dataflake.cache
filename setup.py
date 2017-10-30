@@ -28,7 +28,7 @@ def read(*rnames):
 setup(name=NAME,
       version=read('version.txt').strip(),
       description='Simple caching library',
-      long_description=(read('README.rst'),
+      long_description=read('README.rst'),
       classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
