@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.10 (unreleased)
+-----------------
+
+
 1.9 (2018-06-29)
 ----------------
 - test and declare support for Python 3.7
