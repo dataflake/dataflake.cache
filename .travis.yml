@@ -6,8 +6,7 @@ python:
     - 3.4
     - 3.5
     - 3.6
-    - "3.7-dev"  # A 3.7 build is not available yet
-    - "pypy2.7"
+    - "pypy"  # PyPy 2
     - "pypy3.5"
 
 install:
