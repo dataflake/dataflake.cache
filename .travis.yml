@@ -6,9 +6,9 @@ python:
     - 3.4
     - 3.5
     - 3.6
-    - 3.7
-    - "pypy"  # PyPy2 2.5.0
-    - "pypy-5.3.1" 
+    - "3.7-dev"  # A 3.7 build is not available yet
+    - "pypy2.7"
+    - "pypy3.5"
 
 install:
     - pip install -U setuptools==33.1.1 coverage
