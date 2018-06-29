@@ -3,6 +3,7 @@ Change log
 
 1.9 (unreleased)
 ----------------
+- test and declare support for Python 3.7
 
 
 1.8 (2017-06-01)
