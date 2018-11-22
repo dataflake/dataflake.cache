@@ -181,8 +181,10 @@ release packages.
 
 .. code-block:: sh
 
-  $ bin/buildout -o
-  $ python setup.py sdist bdist_wheel upload --sign
+  $ rm -rf dist
+  $ bin/buildout -No
+  $ bin/buildout setup setup.py sdist bdist_wheel
+  $ bin/twine upload -s dist/*
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.

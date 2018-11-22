@@ -3,6 +3,8 @@ Change log
 
 1.11 (unreleased)
 -----------------
+- switch to ``twine`` for egg uploads, otherwise ``project_urls`` in
+  setup.py are not shown on PyPI
 
 
 1.10.1 (2018-11-22)
