@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.12 (unreleased)
+-----------------
+
+
 1.11 (2018-11-22)
 -----------------
 - switch to ``twine`` for egg uploads, otherwise ``project_urls`` in
