@@ -18,7 +18,6 @@ from setuptools import setup
 
 
 NAME = 'dataflake.cache'
-URL = 'https://github.com/dataflake/%s' % NAME
 
 
 def read(*rnames):
@@ -50,11 +49,11 @@ setup(name=NAME,
       keywords='cache',
       author="Jens Vagelpohl and contributors",
       author_email="jens@dataflake.org",
-      url=URL,
+      url='https://github.com/dataflake/%s' % NAME,
       project_urls={
         'Documentation': 'https://dataflakecache.readthedocs.io',
-        'Source': URL,
-        'Issue Tracker': '%s/issues' % URL,
+        'Source': 'https://github.com/dataflake/dataflake.cache',
+        'Issue Tracker': 'https://github.com/dataflake/dataflake.cache/issues',
       },
       license="ZPL 2.1",
       packages=find_packages(),

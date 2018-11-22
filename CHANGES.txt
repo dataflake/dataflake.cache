@@ -1,10 +1,6 @@
 Change log
 ==========
 
-1.11 (unreleased)
------------------
-
-
 1.10 (2018-11-22)
 -----------------
 - set up URLs visible on pypi.org
