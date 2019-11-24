@@ -11,12 +11,7 @@ to prevent :mod:`dataflake.cache` from globally installing
 versions of packages that are not compatible with your system Python).
 
 After you've got the requisite dependencies installed, you may install
-:mod:`dataflake.cache` into your Python environment using the 
-following commands::
-
-  $ easy_install dataflake.cache
-
-or...::
+:mod:`dataflake.cache` into your Python environment using pip::
 
   $ pip install dataflake.cache
 

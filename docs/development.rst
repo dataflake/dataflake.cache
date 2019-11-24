@@ -22,129 +22,68 @@ GitHub issue tracker at
 https://github.com/dataflake/dataflake.cache/issues.
 
 
-Running the tests in a ``virtualenv``
-=====================================
-If you use the ``virtualenv`` package to create lightweight Python
-development environments, you can run the tests using nothing more
-than the ``python`` binary in a virtualenv.  First, create a scratch
-environment:
+Using the buildout configuration
+================================
+:mod:`dataflake.cache` ships with its own :file:`buildout.cfg` buildout
+configuration file. The buildout procedure will set up all requirements
+for running the unit tests and building the documentation.
 
-.. code-block:: sh
+Using the buildout configuration requires a one-time bootstrap procedure, which
+differs depending on the Python version.
 
-   $ /path/to/virtualenv --no-site-packages /tmp/virtualpy
+.. code-block:: console
 
-Next, get this package registered as a "development egg" in the
-environment:
-
-.. code-block:: sh
-
-   $ /tmp/virtualpy/bin/python setup.py develop
-
-Finally, run the tests using the build-in ``setuptools`` testrunner:
-
-.. code-block:: sh
-
-   $ /tmp/virtualpy/bin/python setup.py test
-   running test
-   ...
-   test_timeout (dataflake.cache.tests.test_timeout.TestTimeoutCache) ... ok
-   
-   ----------------------------------------------------------------------
-   Ran 22 tests in 0.619s
-   
-   OK
-
-If you have the :mod:`nose` package installed in the virtualenv, you can
-use its testrunner too:
-
-.. code-block:: sh
-
-   $ /tmp/virtualpy/bin/easy_install nose
-   ...
-   $ /tmp/virtualpy/bin/python setup.py nosetests
-   running nosetests
-   .........................
-   ----------------------------------------------------------------------
-   Ran 25 tests in 0.647s
-
-   OK
-
-or:
-
-.. code-block:: sh
-
-   $ /tmp/virtualpy/bin/nosetests
-   .........................
-   ----------------------------------------------------------------------
-   Ran 25 tests in 0.649s
-
-   OK
-
-If you have the :mod:`coverage` package installed in the virtualenv,
-you can see how well the tests cover the code:
-
-.. code-block:: sh
-
-   $ /tmp/virtualpy/bin/easy_install nose coverage
-   ...
-   $ /tmp/virtualpy/bin/python setup.py nosetests \
-       --with-coverage --cover-package=dataflake.cache
-   running nosetests
-   ...
-   Name                         Stmts   Exec  Cover   Missing
-   ----------------------------------------------------------
-   dataflake.cache                  1      1   100%   
-   dataflake.cache.interfaces      12     12   100%   
-   dataflake.cache.simple          39     39   100%   
-   dataflake.cache.timeout         61     61   100%   
-   dataflake.cache.utils           25     10    40%   20-37
-   ----------------------------------------------------------
-   TOTAL                          138    123    89%   
-   ----------------------------------------------------------------------
-   Ran 25 tests in 0.668s
-
-   OK
+    $ cd /path/to/dataflake.cache
+    $ python2.7 -m virtualenv .     # PYTHON 2
+    $ python3 -m venv .             # PYTHON 3
+    $ bin/pip install -U pip        # Make sure pip is compatible
+    $ bin/pip install -Ur requirements.txt
 
 
-Running the tests using  :mod:`zc.buildout`
-===========================================
-:mod:`dataflake.cache` ships with its own :file:`buildout.cfg` file and
-:file:`bootstrap.py` for setting up a development buildout:
+Running the tests
+=================
+Once you have a buildout finished, the tests can be run as follows:
 
-.. code-block:: sh
+.. code-block:: console
 
-  $ python bootstrap.py
-  ...
-  Generated script '.../bin/buildout'
-  $ bin/buildout
-  ...
-
-Once you have a buildout, the tests can be run as follows:
-
-.. code-block:: sh
-
-   $ bin/test
-   Running tests at all levels
-   Running zope.testing.testrunner.layer.UnitTests tests:
-     Set up zope.testing.testrunner.layer.UnitTests in 0.000 seconds.
-     Running:
-   .......................
-     Ran 23 tests with 0 failures and 0 errors in 1.615 seconds.
-   Tearing down left over layers:
-     Tear down zope.testing.testrunner.layer.UnitTests in 0.000 seconds.
+    $ bin/test
+    Running zope.testrunner.layer.UnitTests tests:
+      Set up zope.testrunner.layer.UnitTests in 0.000 seconds.
+      Ran 23 tests with 0 failures, 0 errors and 0 skipped in 1.628 seconds.
+    Tearing down left over layers:
+      Tear down zope.testrunner.layer.UnitTests in 0.000 seconds.
 
 
-Building the documentation using :mod:`zc.buildout`
-===================================================
+The package also ships with a ``tox`` configuration that will run the tests
+across all supported Python versons, and the linting and code coverage check:
+
+.. code-block:: console
+
+    $ bin/tox
+    ...
+    py27: commands succeeded
+    py34: commands succeeded
+    py35: commands succeeded
+    py36: commands succeeded
+    py37: commands succeeded
+    py38: commands succeeded
+    pypy: commands succeeded
+    pypy3: commands succeeded
+    jython: commands succeeded
+    coverage: commands succeeded
+    flake8: commands succeeded
+
+
+Building the documentation
+==========================
 The :mod:`dataflake.cache` buildout installs the Sphinx scripts required 
 to build the documentation, including testing its code snippets:
 
-.. code-block:: sh
+.. code-block:: console
 
    $ cd docs
    $ make doctest html
-   .../bin/sphinx-build -b doctest -d .../docs/_build/doctrees   \
-        .../docs .../docs/_build/doctest
+   Running Sphinx...
    ...
    running tests...
 
@@ -162,29 +101,26 @@ to build the documentation, including testing its code snippets:
        0 failures in tests
        0 failures in setup code
    build succeeded.
-   Testing of doctests in the sources finished, look at the  results in \
-        .../docs/_build/doctest/output.txt.
-   .../bin/sphinx-build -b html -d .../docs/_build/doctrees   \
-        .../docs .../docs/_build/html
+   ...
+   Running Sphinx...
    ...
    build succeeded.
 
-   Build finished. The HTML pages are in .../docs/_build/html.
+   The HTML pages are in _build/html.
 
 
 Making a release
 ================
-These instructions assume that you have a development sandbox set 
-up using :mod:`zc.buildout` as the scripts used here are generated 
-by the buildout. The `twine` package is required for uploading the
-release packages.
+Make sure you have the added requirements ``wheel`` and ``twine`` available:
 
-.. code-block:: sh
+.. code-block:: console
 
-  $ rm -rf dist
-  $ bin/buildout -No
-  $ bin/buildout setup setup.py sdist bdist_wheel
-  $ bin/twine upload -s dist/*
+    $ cd /path/to/dataflake.cache
+    $ bin/pip install -U wheel twine
+    $ rm -rf dist
+    $ bin/buildout -N
+    $ bin/buildout setup setup.py sdist bdist_wheel
+    $ bin/twine upload -s dist/*
 
 The ``bin/buildout`` step will make sure the correct package information 
 is used.
