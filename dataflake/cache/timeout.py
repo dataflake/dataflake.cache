@@ -13,13 +13,14 @@
 """ Simple non-persistent caches with timeout
 """
 
-from threading import RLock
 import time
+from threading import RLock
 
 from zope.interface import implementer
 
 from dataflake.cache.interfaces import ITimeoutCache
 from dataflake.cache.utils import protect_with_lock
+
 
 MAX_SECS = 2147483647
 

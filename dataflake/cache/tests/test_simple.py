@@ -17,6 +17,7 @@ import unittest
 
 from dataflake.cache.tests.base import CacheTestCase
 
+
 try:
     unicode
 except NameError:  # pragma NO COVER Python3
