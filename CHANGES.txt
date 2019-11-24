@@ -1,6 +1,10 @@
 Change log
 ==========
 
+1.13 (unreleased)
+-----------------
+
+
 1.12 (2019-11-24)
 -----------------
 - move from ``bootstrap.py`` to ``virtualenv`` and ``pip`` for bootstrapping
