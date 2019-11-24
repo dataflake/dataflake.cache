@@ -27,6 +27,8 @@ matrix:
           env: TOXENV=pypy3
         - python: "jython"
           env: TOXENV=jython
+    allow_failures:
+        - env: TOXENV=jython
 
 install:
     - travis_retry pip install -U pip setuptools
@@ -34,6 +36,10 @@ install:
 
 script:
     - travis_retry tox
+
+after_success:
+    - coverage combine
+    - coveralls
 
 notifications:
     email: false
