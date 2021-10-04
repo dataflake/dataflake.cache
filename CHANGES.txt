@@ -1,8 +1,15 @@
 Change log
 ==========
 
-1.13 (unreleased)
------------------
+2.0 (unreleased)
+----------------
+- remove claimed support for Jython, testing is a pain in the rear.
+
+- remove claimed support for outdated Python 3.4
+
+- add support for Python 3.9 and 3.10
+
+- reorganize package structure
 
 
 1.12 (2019-11-24)

@@ -17,8 +17,8 @@ from threading import RLock
 
 from zope.interface import implementer
 
-from dataflake.cache.interfaces import ICache
-from dataflake.cache.utils import protect_with_lock
+from .interfaces import ICache
+from .utils import protect_with_lock
 
 
 @implementer(ICache)

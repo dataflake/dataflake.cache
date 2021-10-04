@@ -16,7 +16,7 @@
 import time
 import unittest
 
-from dataflake.cache.tests.base import CacheTestCase
+from .base import CacheTestCase
 
 
 class TestTimeoutCache(CacheTestCase):
@@ -26,8 +26,9 @@ class TestTimeoutCache(CacheTestCase):
         return TimeoutCache
 
     def test_conformance(self):
-        from dataflake.cache.interfaces import ITimeoutCache
         from zope.interface.verify import verifyClass
+
+        from dataflake.cache.interfaces import ITimeoutCache
         verifyClass(ITimeoutCache, self._getTargetClass())
 
     def test_initial_state(self):

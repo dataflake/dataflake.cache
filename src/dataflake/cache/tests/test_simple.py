@@ -15,7 +15,7 @@
 
 import unittest
 
-from dataflake.cache.tests.base import CacheTestCase
+from .base import CacheTestCase
 
 
 try:
@@ -31,8 +31,9 @@ class TestSimpleCache(CacheTestCase):
         return SimpleCache
 
     def test_conformance(self):
-        from dataflake.cache.interfaces import ICache
         from zope.interface.verify import verifyClass
+
+        from dataflake.cache.interfaces import ICache
         verifyClass(ICache, self._getTargetClass())
 
     def test_initial_state(self):
