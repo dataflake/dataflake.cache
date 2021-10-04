@@ -7,7 +7,7 @@ Getting the source code
 =======================
 The source code is maintained on GitHub. To check out the trunk:
 
-.. code-block:: sh
+.. code-block:: console
 
   $ git clone https://github.com/dataflake/dataflake.cache.git
 
