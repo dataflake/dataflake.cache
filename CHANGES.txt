@@ -1,6 +1,10 @@
 Change log
 ==========
 
+2.1 (unreleased)
+----------------
+
+
 2.0 (2021-10-04)
 ----------------
 - remove claimed support for Jython, testing is a pain in the rear.
