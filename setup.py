@@ -74,6 +74,10 @@ setup(name=NAME,
                  'sphinx_rtd_theme',
                  ],
         },
+      tests_require=[
+        'zope.testing',
+        'zope.testrunner',
+        ],
       zip_safe=False,
       test_suite='%s.tests' % NAME,
       )

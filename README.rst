@@ -1,5 +1,10 @@
-.. image:: https://api.travis-ci.org/dataflake/dataflake.cache.svg?branch=master
-   :target: https://travis-ci.org/dataflake/dataflake.cache
+.. image:: https://github.com/dataflake/dataflake.cache/actions/workflows/tests.yml/badge.svg
+   :target: https://github.com/dataflake/dataflake.cache/actions/workflows/tests.yml
+   :alt: Unit test status
+
+.. image:: https://coveralls.io/repos/github/dataflake/dataflake.cache/badge.svg?branch=master
+   :target: https://coveralls.io/github/dataflake/dataflake.cache?branch=master
+   :alt: Coverage Status
 
 .. image:: https://readthedocs.org/projects/dataflakecache/badge/?version=latest
    :target: https://dataflakecache.readthedocs.io
