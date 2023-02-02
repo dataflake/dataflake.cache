@@ -13,8 +13,6 @@
 """ Tests for the Simple cache class
 """
 
-import unittest
-
 from .base import CacheTestCase
 
 
@@ -53,28 +51,28 @@ class TestSimpleCache(CacheTestCase):
         self.assertEqual(self.cache.get('key1'), 'value1')
 
         self.cache.set('key2', 'value2')
-        self.assertEqual(set(self.cache.keys()), set(['key1', 'key2']))
-        self.assertEqual(set(self.cache.values()), set(['value1', 'value2']))
+        self.assertEqual(set(self.cache.keys()), {'key1', 'key2'})
+        self.assertEqual(set(self.cache.values()), {'value1', 'value2'})
         self.assertEqual(set(self.cache.items()),
-                         set([('key1', 'value1'), ('key2', 'value2')]))
+                         {('key1', 'value1'), ('key2', 'value2')})
         self.assertEqual(self.cache.get('key2'), 'value2')
 
         self.cache.set('key3', 'value3')
         self.cache.invalidate('key1')
-        self.assertEqual(set(self.cache.keys()), set(['key2', 'key3']))
-        self.assertEqual(set(self.cache.values()), set(['value2', 'value3']))
+        self.assertEqual(set(self.cache.keys()), {'key2', 'key3'})
+        self.assertEqual(set(self.cache.values()), {'value2', 'value3'})
         self.assertEqual(set(self.cache.items()),
-                         set([('key2', 'value2'), ('key3', 'value3')]))
+                         {('key2', 'value2'), ('key3', 'value3')})
         self.assertFalse(self.cache.get('key1'))
 
         self.cache.set('key3', 'NEW')
         self.assertEqual(self.cache.get('key3'), 'NEW')
 
         self.cache.invalidate('UNKNOWN')
-        self.assertEqual(set(self.cache.keys()), set(['key2', 'key3']))
-        self.assertEqual(set(self.cache.values()), set(['value2', 'NEW']))
+        self.assertEqual(set(self.cache.keys()), {'key2', 'key3'})
+        self.assertEqual(set(self.cache.values()), {'value2', 'NEW'})
         self.assertEqual(set(self.cache.items()),
-                         set([('key2', 'value2'), ('key3', 'NEW')]))
+                         {('key2', 'value2'), ('key3', 'NEW')})
 
         self.cache.invalidate()
         self.assertFalse(list(self.cache.keys()))
@@ -91,23 +89,23 @@ class TestSimpleCache(CacheTestCase):
 
         self.cache.set(unicode('key2'), unicode('value2'))
         self.assertEqual(set(self.cache.keys()),
-                         set([unicode('key1'), unicode('key2')]))
+                         {unicode('key1'), unicode('key2')})
         self.assertEqual(set(self.cache.values()),
-                         set([unicode('value1'), unicode('value2')]))
+                         {unicode('value1'), unicode('value2')})
         self.assertEqual(set(self.cache.items()),
-                         set([(unicode('key1'), unicode('value1')),
-                              (unicode('key2'), unicode('value2'))]))
+                         {(unicode('key1'), unicode('value1')),
+                          (unicode('key2'), unicode('value2'))})
         self.assertEqual(self.cache.get(unicode('key2')), unicode('value2'))
 
         self.cache.set(unicode('key3'), unicode('value3'))
         self.cache.invalidate(unicode('key1'))
         self.assertEqual(set(self.cache.keys()),
-                         set([unicode('key2'), unicode('key3')]))
+                         {unicode('key2'), unicode('key3')})
         self.assertEqual(set(self.cache.values()),
-                         set([unicode('value2'), unicode('value3')]))
+                         {unicode('value2'), unicode('value3')})
         self.assertEqual(set(self.cache.items()),
-                         set([(unicode('key2'), unicode('value2')),
-                              (unicode('key3'), unicode('value3'))]))
+                         {(unicode('key2'), unicode('value2')),
+                          (unicode('key3'), unicode('value3'))})
         self.assertFalse(self.cache.get(unicode('key1')))
 
         self.cache.set(unicode('key3'), unicode('NEW'))
@@ -115,12 +113,12 @@ class TestSimpleCache(CacheTestCase):
 
         self.cache.invalidate(unicode('UNKNOWN'))
         self.assertEqual(set(self.cache.keys()),
-                         set([unicode('key2'), unicode('key3')]))
+                         {unicode('key2'), unicode('key3')})
         self.assertEqual(set(self.cache.values()),
-                         set([unicode('value2'), unicode('NEW')]))
+                         {unicode('value2'), unicode('NEW')})
         self.assertEqual(set(self.cache.items()),
-                         set([(unicode('key2'), unicode('value2')),
-                              (unicode('key3'), unicode('NEW'))]))
+                         {(unicode('key2'), unicode('value2')),
+                          (unicode('key3'), unicode('NEW'))})
 
         self.cache.invalidate()
         self.assertFalse(list(self.cache.keys()))
@@ -141,28 +139,28 @@ class TestSimpleCache(CacheTestCase):
         self.assertEqual(self.cache.get(key1), value1)
 
         self.cache.set(key2, value2)
-        self.assertEqual(set(self.cache.keys()), set([key1, key2]))
-        self.assertEqual(set(self.cache.values()), set([value1, value2]))
+        self.assertEqual(set(self.cache.keys()), {key1, key2})
+        self.assertEqual(set(self.cache.values()), {value1, value2})
         self.assertEqual(set(self.cache.items()),
-                         set([(key1, value1), (key2, value2)]))
+                         {(key1, value1), (key2, value2)})
         self.assertEqual(self.cache.get(key2), value2)
 
         self.cache.set(key3, value3)
         self.cache.invalidate(key1)
-        self.assertEqual(set(self.cache.keys()), set([key2, key3]))
-        self.assertEqual(set(self.cache.values()), set([value2, value3]))
+        self.assertEqual(set(self.cache.keys()), {key2, key3})
+        self.assertEqual(set(self.cache.values()), {value2, value3})
         self.assertEqual(set(self.cache.items()),
-                         set([(key2, value2), (key3, value3)]))
+                         {(key2, value2), (key3, value3)})
         self.assertFalse(self.cache.get(key1))
 
         self.cache.set(key3, 'NEW')
         self.assertEqual(self.cache.get(key3), 'NEW')
 
         self.cache.invalidate('UNKNOWN')
-        self.assertEqual(set(self.cache.keys()), set([key2, key3]))
-        self.assertEqual(set(self.cache.values()), set([value2, 'NEW']))
+        self.assertEqual(set(self.cache.keys()), {key2, key3})
+        self.assertEqual(set(self.cache.values()), {value2, 'NEW'})
         self.assertEqual(set(self.cache.items()),
-                         set([(key2, value2), (key3, 'NEW')]))
+                         {(key2, value2), (key3, 'NEW')})
 
         self.cache.invalidate()
         self.assertFalse(list(self.cache.keys()))
@@ -186,10 +184,3 @@ class TestLockingSimpleCache(TestSimpleCache):
     def _getTargetClass(self):
         from dataflake.cache.simple import LockingSimpleCache
         return LockingSimpleCache
-
-
-def test_suite():
-    return unittest.TestSuite((
-        unittest.makeSuite(TestSimpleCache),
-        unittest.makeSuite(TestLockingSimpleCache),
-        ))

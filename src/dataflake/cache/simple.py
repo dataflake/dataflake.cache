@@ -22,7 +22,7 @@ from .utils import protect_with_lock
 
 
 @implementer(ICache)
-class SimpleCache(object):
+class SimpleCache:
     """ Simple instance-level cache
     """
 
@@ -76,14 +76,14 @@ class LockingSimpleCache(SimpleCache):
     """
 
     def __init__(self):
-        super(LockingSimpleCache, self).__init__()
+        super().__init__()
         self.lock = RLock()
 
     @protect_with_lock
     def set(self, key, value):
         """ Store a key/value pair
         """
-        return super(LockingSimpleCache, self).set(key, value)
+        return super().set(key, value)
 
     @protect_with_lock
     def get(self, key, default=None):
@@ -91,10 +91,10 @@ class LockingSimpleCache(SimpleCache):
 
         If no value is found the default value will be returned.
         """
-        return super(LockingSimpleCache, self).get(key, default)
+        return super().get(key, default)
 
     @protect_with_lock
     def invalidate(self, key=None):
         """ Invalidate the given key, or all key/values if no key is passed.
         """
-        return super(LockingSimpleCache, self).invalidate(key)
+        return super().invalidate(key)
