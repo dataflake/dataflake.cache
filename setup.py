@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2009-2021 Jens Vagelpohl and Contributors. All Rights Reserved.
+# Copyright (c) 2009-2023 Jens Vagelpohl and Contributors. All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
 # Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
@@ -17,17 +17,13 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-NAME = 'dataflake.cache'
-URL = 'https://github.com/dataflake/%s' % NAME
-
-
 def read(*rnames):
     with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
         return f.read()
 
 
-setup(name=NAME,
-      version=read('version.txt').strip(),
+setup(name='dataflake.cache',
+      version='2.1.dev0',
       description='Simple caching library',
       long_description=read('README.rst'),
       classifiers=[
@@ -51,11 +47,11 @@ setup(name=NAME,
       keywords='cache',
       author="Jens Vagelpohl and contributors",
       author_email="jens@dataflake.org",
-      url=URL,
+      url='https://github.com/dataflake/dataflake.cache',
       project_urls={
         'Documentation': 'https://dataflakecache.readthedocs.io',
-        'Source code': URL,
-        'Issue Tracker': '%s/issues' % URL,
+        'Sources': 'https://github.com/dataflake/dataflake.cache',
+        'Issue Tracker': 'https://github.com/dataflake/dataflake.cache/issues',
       },
       license="ZPL 2.1",
       packages=find_packages('src'),
@@ -68,10 +64,10 @@ setup(name=NAME,
         'zope.interface',
         ],
       extras_require={
-        'docs': ['Sphinx < 2;python_version < "3"',
-                 'Sphinx;python_version >= "3"',
+        'docs': ['Sphinx',
                  'repoze.sphinx.autointerface',
                  'sphinx_rtd_theme',
+                 'pkginfo',
                  ],
         },
       tests_require=[
@@ -79,5 +75,5 @@ setup(name=NAME,
         'zope.testrunner',
         ],
       zip_safe=False,
-      test_suite='%s.tests' % NAME,
+      test_suite='dataflake.cache.tests',
       )
