@@ -1,6 +1,5 @@
 # Generated from:
 # https://github.com/zopefoundation/meta/tree/master/config/pure-python
-*.class
 *.dll
 *.egg-info/
 *.profraw
@@ -29,4 +28,5 @@ lib64
 log/
 parts/
 pyvenv.cfg
+testing.log
 var/

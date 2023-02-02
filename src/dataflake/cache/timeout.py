@@ -26,7 +26,7 @@ MAX_SECS = 2147483647
 
 
 @implementer(ITimeoutCache)
-class TimeoutCache(object):
+class TimeoutCache:
     """ A simple non-persistent cache with timeout
     """
 
@@ -113,14 +113,14 @@ class LockingTimeoutCache(TimeoutCache):
     """
 
     def __init__(self):
-        super(LockingTimeoutCache, self).__init__()
+        super().__init__()
         self.lock = RLock()
 
     @protect_with_lock
     def set(self, key, value):
         """ Store a key/value pair
         """
-        return super(LockingTimeoutCache, self).set(key, value)
+        return super().set(key, value)
 
     @protect_with_lock
     def get(self, key, default=None):
@@ -128,10 +128,10 @@ class LockingTimeoutCache(TimeoutCache):
 
         If no value is found the default value will be returned.
         """
-        return super(LockingTimeoutCache, self).get(key, default)
+        return super().get(key, default)
 
     @protect_with_lock
     def invalidate(self, key=None):
         """ Invalidate the given key, or all key/values if no key is passed.
         """
-        return super(LockingTimeoutCache, self).invalidate(key)
+        return super().invalidate(key)
