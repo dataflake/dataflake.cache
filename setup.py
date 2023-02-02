@@ -23,7 +23,7 @@ def read(*rnames):
 
 
 setup(name='dataflake.cache',
-      version='2.1.dev0',
+      version='3.0.dev0',
       description='Simple caching library',
       long_description=read('README.rst'),
       classifiers=[
