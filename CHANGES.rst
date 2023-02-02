@@ -1,6 +1,10 @@
 Change log
 ==========
 
+3.1 (unreleased)
+----------------
+
+
 3.0 (2023-02-02)
 ----------------
 - Add support for Python 3.11.
