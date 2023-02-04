@@ -1,10 +1,4 @@
-.. _index:
-
-=============
-Documentation
-=============
-:mod:`dataflake.cache` provides caching implementations based on a 
-very simple API.
+.. include:: ../README.rst
 
 
 Narrative documentation
@@ -12,35 +6,33 @@ Narrative documentation
 Narrative documentation explaining how to use :mod:`dataflake.cache`.
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   install
-   usage
-   development
-   changes
+    installation
+    usage
+    development
+    changes
 
 
-API documentation
------------------
-API documentation for :mod:`dataflake.cache`.
+Technical documentation
+-----------------------
+Technical documentation for programming interfaces and APIs.
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   api/api
-   api/simple
-   api/timeout
+    api/api
+    api/modules
 
 
 Support
 -------
 If you need commercial support for this software package, please
-see `https://www.zetwork.com <https://www.zetwork.com/>`_.
+visit `https://www.zetwork.com <https://www.zetwork.com/>`_.
 
 
 Indices and tables
 ------------------
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
 * :ref:`glossary`

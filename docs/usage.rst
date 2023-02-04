@@ -34,9 +34,7 @@ implementation with built-in timeout is provided as well:
     'not available'
 
 Both the simple and timeout caches are available as thread-safe 
-implementations using locks, see the :ref:`simple_cache_module` 
-and :ref:`timeout_cache_module` documentation.
+implementations using locks, see the :ref:`modules` documentation.
 
 The :ref:`api_interfaces_section` page contains more
 information about the cache APIs.
-
