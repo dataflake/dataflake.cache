@@ -13,7 +13,7 @@
 
 import os
 
-from setuptools import find_packages
+from setuptools import find_namespace_packages
 from setuptools import setup
 
 
@@ -54,9 +54,8 @@ setup(name='dataflake.cache',
         'Issue Tracker': 'https://github.com/dataflake/dataflake.cache/issues',
       },
       license="ZPL 2.1",
-      packages=find_packages('src'),
       package_dir={'': 'src'},
-      namespace_packages=['dataflake'],
+      packages=['dataflake.cache'],
       python_requires='>=3.7',
       include_package_data=True,
       install_requires=[
