@@ -13,7 +13,6 @@
 
 import os
 
-from setuptools import find_namespace_packages
 from setuptools import setup
 
 
