@@ -5,6 +5,8 @@ Change log
 ----------------
 - Add support for Python 3.13.
 
+- Implement support for PEP 420 namespaces.
+
 
 3.1 (2024-01-03)
 ----------------
