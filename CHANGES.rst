@@ -3,6 +3,9 @@ Change log
 
 3.3 (unreleased)
 ----------------
+- Add support for Python 3.14.
+
+- Drop support for Python 3.7 and 3.8.
 
 
 3.2 (2024-03-14)

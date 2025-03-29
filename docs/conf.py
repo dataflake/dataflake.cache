@@ -5,8 +5,9 @@
 
 import datetime
 import os
+
 import pkginfo
-import sys
+
 
 parent = os.path.dirname(os.path.dirname(__file__))
 parent_dir = os.path.abspath(parent)
@@ -15,7 +16,6 @@ pkg_version = pkg_info.version or ''
 year = datetime.datetime.now().year
 
 # -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'dataflake.cache'
 copyright = '2008-%i, Jens Vagelpohl and Contributors' % year
@@ -27,7 +27,6 @@ version = pkg_version.replace('.dev0', '')
 release = pkg_version
 
 # -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.doctest',
@@ -37,7 +36,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 language = 'en'
 
 # -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
 html_static_path = ['_static']

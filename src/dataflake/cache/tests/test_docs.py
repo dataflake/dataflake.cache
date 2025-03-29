@@ -20,4 +20,4 @@ import unittest
 def test_suite():
     return unittest.TestSuite((
         doctest.DocFileSuite('../../../../docs/usage.rst'),
-        ))
+    ))

@@ -2,7 +2,7 @@
 # https://github.com/zopefoundation/meta/tree/master/config/pure-python
 [meta]
 template = "pure-python"
-commit-id = "d00a7004"
+commit-id = "e1995c20"
 
 [python]
 with-windows = false
@@ -25,4 +25,5 @@ fail-under = 87
 additional-ignores = [
     "docs/_build/html/_sources/api/*",
     "docs/_build/html/_static/*",
+    "docs/_build/html/_static/scripts/*",
     ]

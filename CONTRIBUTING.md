@@ -1,3 +1,7 @@
+<!--
+Generated from:
+https://github.com/zopefoundation/meta/tree/master/config/pure-python
+-->
 # Contributing to dataflake projects
 
 The projects under the dataflake GitHub organization are open source and
