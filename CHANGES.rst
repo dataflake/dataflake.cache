@@ -1,6 +1,10 @@
 Change log
 ==========
 
+3.4 (unreleased)
+----------------
+
+
 3.3 (2025-10-24)
 ----------------
 - Move all package configuration into ``pyproject.toml``.
