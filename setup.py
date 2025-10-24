@@ -11,63 +11,7 @@
 #
 ##############################################################################
 
-import os
-
 from setuptools import setup
 
 
-def read(*rnames):
-    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
-        return f.read()
-
-
-setup(name='dataflake.cache',
-      version='3.3.dev0',
-      description='Simple caching library',
-      long_description=read('README.rst'),
-      long_description_content_type='text/x-rst',
-      classifiers=[
-          "Development Status :: 5 - Production/Stable",
-          "Intended Audience :: Developers",
-          "License :: OSI Approved :: Zope Public License",
-          "Operating System :: OS Independent",
-          "Programming Language :: Python :: 3",
-          "Programming Language :: Python :: 3.10",
-          "Programming Language :: Python :: 3.11",
-          "Programming Language :: Python :: 3.12",
-          "Programming Language :: Python :: 3.13",
-          "Programming Language :: Python :: 3.14",
-          "Programming Language :: Python :: 3.15",
-          "Programming Language :: Python :: Implementation :: CPython",
-          "Programming Language :: Python :: Implementation :: PyPy",
-          "Topic :: Software Development :: Libraries :: Python Modules",
-      ],
-      keywords='cache',
-      author="Jens Vagelpohl and contributors",
-      author_email="jens@dataflake.org",
-      url='https://github.com/dataflake/dataflake.cache',
-      project_urls={
-          'Documentation': 'https://dataflakecache.readthedocs.io',
-          'Sources': 'https://github.com/dataflake/dataflake.cache',
-          'Issue Tracker': (
-              'https://github.com/dataflake/dataflake.cache/issues'),
-      },
-      license="ZPL-2.1",
-      package_dir={'': 'src'},
-      packages=['dataflake.cache'],
-      python_requires='>=3.10',
-      include_package_data=True,
-      install_requires=[
-          'setuptools',
-          'zope.interface',
-      ],
-      extras_require={
-          'docs': ['Sphinx',
-                   'repoze.sphinx.autointerface',
-                   'sphinx_rtd_theme',
-                   'pkginfo',
-                   'furo',
-                   ],
-      },
-      zip_safe=False,
-      )
+setup(name='dataflake.cache')

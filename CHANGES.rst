@@ -3,6 +3,8 @@ Change log
 
 3.3 (unreleased)
 ----------------
+- Move all package configuration into ``pyproject.toml``.
+
 - Add support for Python 3.14 and 3.15.
 
 - Drop support for Python 3.7 and 3.8.
