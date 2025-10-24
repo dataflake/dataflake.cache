@@ -27,3 +27,9 @@ additional-ignores = [
     "docs/_build/html/_static/*",
     "docs/_build/html/_static/scripts/*",
     ]
+
+[manifest]
+additional-rules = [
+    "include *.yaml",
+    "recursive-exclude docs/_build *.txt",
+    ]
